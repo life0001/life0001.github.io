@@ -1,0 +1,13 @@
+html,body{height:100%;}
+.height100{height:100%;}
+#pwf{height:100%; }
+#left{width:16%; padding:2%;}
+#left h1{font-size:2rem;}
+#left .navList{margin-top:10%; font-size:100%;}
+.navList a{color:#666; padding:2% 4%; text-align: center}
+.navList li{margin-bottom:6%;}
+.navList .cur a{border-bottom:1px dashed #666;}
+#left .p1{text-indent:2%; font-size:74%;}
+#right{width:80%; }
+#main .bg1{height:100%; background:url(../img/bg.jpg) no-repeat center; background-size:100% 100%;}
+#project{padding-top:4%;}

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="pwf">
-<head lang="en">
+<head lang="zh-cmn-Hans">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/base.css" rel="stylesheet" />
+	<link href="css/pwf.css" rel="stylesheet" />
+    <script src="js/jquery.1.9.1.js"></script>
     <title></title>
-</head>
-  <body>
-    <div ui-view></div>
+  </head>
+  <body ng-controller="pwf">
+    <div ui-view="pwf" class="height100"></div>
   </body>
 
 <script src="js/angular.min.js"></script>
-<script src="js/angular-route.js"></script>
+<script src="js/angular-ui-router.js"></script>
 <script src="js/pwf.js"></script>
 </html>
