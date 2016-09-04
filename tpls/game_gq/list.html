@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<script>
+if(user == '') $.errorMSG('请先登录',function(){
+	location.href=pathweb+"/toLogin.do";
+})
+</script>
+<div id="list">
+	<p class="titlist">{{list.phone}}</p>
+	<table id="table">
+		<tbody>
+			<tr ng-repeat="x in list.alen">
+				<td class="blue"><p>2016-08-{{list.getDate($index)}}</p></td>
+				<td class="orange"><p><span class="radius">总额</span>{{list.getData($index).Amount}}</p></td>
+				<td class="yel"><p><span class="radius Yel">个奖</span>{{list.getData($index).Money}}</p></td>
+			</tr>
+		</tbody>
+	</table>
+	<p class="align"><span class="radius bgred">注意</span>当天的投资总额和个人奖金记录会在隔天显示在表格中</p>
+	<div class="btns">
+		<a href="{{url}}" class="obtn"><img src="img/oyh/g2/btn.png" width="100%"/></a>
+		<a href="#" class="obtn"><img src="img/oyh/g2/btn3.png" width="100%"/></a>
+	</div>
+</div>

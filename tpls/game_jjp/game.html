@@ -1,7 +1,7 @@
 <div id="loading">加载中...</div>
 <div id="bg"><a id="btn">点击开始</a></div>
 <canvas id="game">您的浏览器太旧了，无法正常访问</canvas>
-<script src="../js/game.js"></script>
+<script src="../../js/oyh/game.js"></script>
 <script>
 	/**
 	 * 舞台
@@ -111,11 +111,11 @@
 				ctx.restore();
 			},
 			render: function () {
-				this.img('../img/g1.png', 0, 0, Game.width, Game.height);  // 背景
-				this.img('../img/arrowLeft.png',  stage.arrowLeftX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 左箭头
-				this.img('../img/arrowRight.png',  stage.arrowRightX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 右箭头
-				this.img('../img/g2.png',  stage.ljtX,  stage.ljtY,  stage.ljtWidth,  stage.ljtHeight); // 领奖台
-				this.img('../img/role/'+ hero.role +'.png',  hero.HeroX,  hero.HeroY,  hero.HeroWidth,  hero.HeroHeight); // 英雄
+				this.img('../img/oyh/g1.png', 0, 0, Game.width, Game.height);  // 背景
+				this.img('../img/oyh/arrowLeft.png',  stage.arrowLeftX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 左箭头
+				this.img('../img/oyh/arrowRight.png',  stage.arrowRightX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 右箭头
+				this.img('../img/oyh/g2.png',  stage.ljtX,  stage.ljtY,  stage.ljtWidth,  stage.ljtHeight); // 领奖台
+				this.img('../img/oyh/role/'+ hero.role +'.png',  hero.HeroX,  hero.HeroY,  hero.HeroWidth,  hero.HeroHeight); // 英雄
 			}
 		};
 	});
@@ -242,7 +242,7 @@
 							}else{   // 未开始掉或未触碰
                                 arr[i].y += arr[i].vy;
                                 arr[i].vy += this.speed;
-								draw.img('../img/g3.png', arr[i].x, arr[i].y, this.width, this.height);
+								draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
 							}
 						}else{       // 触底
 							arr.splice(i, 1);
