@@ -19,7 +19,7 @@
 			ljtWidth: wWidth * 0.5015625,          // 领奖台宽度
 			ljtHeight: wHeight * 0.21414,          // 领奖台高度
 			aImgs: [],
-            win: window
+            		win: window
 		}
 	});
 
@@ -83,7 +83,7 @@
 	 * 画
 	 */
 	_Game.a.push(function (Game) {
-        var stage = Game.Stage, hero = Game.Hero;
+        	var stage = Game.Stage, hero = Game.Hero;
 		Game.Draw = {
 			img: function (src, x, y, width, height, mark) {
 				var ctx = Game.ctx;
@@ -99,7 +99,7 @@
 				};
 			},
 			text: function (ctx, font, color, txt, x, y) {
-                ctx.fillStyle = color;
+                		ctx.fillStyle = color;
 				ctx.font = font;
 				ctx.textAlign = 'center';
 				ctx.fillText(txt, x, y);
@@ -129,16 +129,16 @@
 			init: function () {
 				Game.btn.addEventListener('click', function () {
 					this.parentNode.remove();
-                    Game.start();
+                    			Game.start();
 				}, false);
-                Game.canvas.addEventListener('touchstart', this.event, false);
+                		Game.canvas.addEventListener('touchstart', this.event, false);
 			},
 			event: function (e) {
 				var arrayImg = Game.Stage.aImgs;
 				var cx = e.changedTouches[0].clientX, cy = e.changedTouches[0].clientY;
 				(function arrow() {
 					if(
-							cx >= arrayImg[1].x && cx <= arrayImg[1].x + arrayImg[1].width
+						    cx >= arrayImg[1].x && cx <= arrayImg[1].x + arrayImg[1].width
 						&&  cy >= arrayImg[1].y && cy <= arrayImg[1].y + arrayImg[1].height
 					){
 						if (Game.Hero.num -- <= 0) {
@@ -148,7 +148,7 @@
 						Game.Hero.move('left');
 
 					}else if(
-							cx >= arrayImg[2].x && cx <= arrayImg[2].x + arrayImg[2].width
+						    cx >= arrayImg[2].x && cx <= arrayImg[2].x + arrayImg[2].width
 						&&  cy >= arrayImg[2].y && cy <= arrayImg[2].y + arrayImg[2].height
 					){
 						if (Game.Hero.num++ >= 2) {
@@ -163,7 +163,7 @@
 					if (Game.Event.isTrue) location.reload();
 				})();
 			},
-            getEle: function (ele) {
+            		getEle: function (ele) {
 				return document.getElementById(ele);
 			}
 		};
@@ -187,7 +187,7 @@
 				this.num = 10;                     // 掉落物数量
 				this.speed = 0.002;                // 速度
 				this.golds = 0;                    // 接到掉落物初始值
-                this.count = 0;
+                		this.count = 0;
 
 				this.init = function (n) {
 					var i = n, _this = this, ctx = Game.ctx;
@@ -216,12 +216,12 @@
 						if (_this.count != _this.num) {
 							_this.render();
 						}else{
-                            if (_this.all-- <= 1 ) {
-                                draw.bg(ctx, 'rgba(0, 0, 0, .5)');
-                                draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
-                                draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
-                                Game.Event.isTrue = true;
-                            }
+			                            if (_this.all-- <= 1 ) {
+			                                draw.bg(ctx, 'rgba(0, 0, 0, .5)');
+			                                draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
+			                                draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
+			                                Game.Event.isTrue = true;
+			                            }
 						}
 					});
 				};
@@ -231,32 +231,32 @@
 					for (var i = 0; i<arr.length; i++) {
 						if (arr[i].y <= wHeight) {
 							if (
-                                    (hero.HeroX + hero.HeroWidth*0.324) < (arr[i].x + this.width)
+                            					    (hero.HeroX + hero.HeroWidth*0.324) < (arr[i].x + this.width)
 								&&  (hero.HeroX + hero.HeroWidth*0.670) > arr[i].x
 								&&  (hero.HeroY + hero.HeroHeight*0.34) < arr[i].y
 								&&  (hero.HeroY + hero.HeroHeight*0.45) > arr[i].y
 							){       // 触碰
 								this.golds++;
-                                this.count++;
+                                				this.count++;
 								arr.splice(i, 1);
 							}else{   // 未开始掉或未触碰
-                                arr[i].y += arr[i].vy;
-                                arr[i].vy += this.speed;
+				                                arr[i].y += arr[i].vy;
+				                                arr[i].vy += this.speed;
 								draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
 							}
 						}else{       // 触底
 							arr.splice(i, 1);
-                            this.count++;
+                            				this.count++;
 						}
 					}
 					draw.text(c, '1rem 黑体', '#000', '金牌：'+t.golds+'/'+this.num, wWidth*0.44, 30);
 				};
-			},
-			down: function () {
-				var aO = new this.Objects();
-				aO.init(aO.num);
-			}
+		},
+		down: function () {
+			var aO = new this.Objects();
+			aO.init(aO.num);
 		}
+	}
 	});
 _Game.init('game', 'btn');
 document.getElementById('loading').style.display = 'none';
