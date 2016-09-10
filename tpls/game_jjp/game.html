@@ -128,7 +128,7 @@
 			isTrue: false,
 			init: function () {
 				Game.btn.addEventListener('click', function () {
-					this.parentNode.remove();
+					$(this).parent().remove();
                     			Game.start();
 				}, false);
                 		Game.canvas.addEventListener('touchstart', this.event, false);
