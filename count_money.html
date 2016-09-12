@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>数钱数到爽，真金白银看手速！</title>
+<style>
+#shuqian{background:url() center no-repeat; font-size:24px;}
+.main p{margin:0;}
+/* #shuqian .init{background:url(${configjscss }/images/newimages/shuqian/bg.jpg) center 0; background-size:cover; height:100%;} */
+.init .p1{background:url(${configjscss }/images/newimages/shuqian/bg1.jpg) center 0; background-size:cover; height:41.881%;}
+.init .p2{background:url(${configjscss }/images/newimages/shuqian/bg22.jpg) center 0; background-size:cover; height:5.742%;}
+.init .p3{background:url(${configjscss }/images/newimages/shuqian/bg3.jpg) center 0; background-size:cover; height:52.376%;}
+#shuqian .play{display:none; background:url(${configjscss }/images/newimages/shuqian/bg2.jpg); background-size:cover; height:100%; width:100%;}
+#shuqian .initHeader{text-align:center; color:#fff;}
+.initHeader .countPeople{color:yellow; font-size:26px; background-color:#bf1a1c; padding:0px 4px; border-radius:5px;}
+#shuqian .images{width:280px; /* height:589px; */ position:fixed; left:50%; bottom:-30% ;z-index:1;}
+#shuqian .images span{ display:block; }
+#shuqian .arrow{position:absolute; top:0; left:0; margin-top:-240%; width:100%; height:36px; z-index:2; background:url("${configjscss }/images/newimages/shuqian/arrow.png") center 0 no-repeat;}
+.images img{position:absolute; left:0; bottom:0; }
+.images .active{-webkit-animation:act .4s; z-index:2}
+@-webkit-keyframes act{
+	0%{-webkit-transform:translate(0,0)}
+	100%{-webkit-transform:translate(0,-1000px)}
+}
+
+.play .countAll{text-align:center; position:absolute; top:0; width:100%; z-index:3;}
+.play .count1{width:100px; margin:0 auto; color:yellow; padding-top:25px; margin-bottom:10px;}
+.play .count2{width:70px; margin:0 auto; color:#fff; }
+
+/* 底部 */
+#shuqian .footer{ display:none; width:100%; height:50px; position:fixed; bottom:4%; z-index:4; text-align:center;}
+.menu2 img{margin-top:-10px;}
+
+/* 富豪榜 */
+#shuqian .paimin{display:none; position:fixed; left:0; top:0; width:100%; height:100%; background-color:#33826B; z-index:3;  color:#fff;}
+.paimin h4{ color:#3E987E; background-color:#D7E4E0; font-weight:bold; padding:10px 0; margin:0; text-align:center;}
+.paimin table{width:100%; text-align:center; color:#fff;}
+.paimin tbody{background-color:#3E987E;}
+.paimin tbody tr:nth-child(even){background-color:#398A72;}
+.paimin th, .txtCenter{ text-align:center;}
+.paimin tr{height:30px;}
+.txtCenter{margin-top:50px; font-size:2rem;}
+
+/* 规则 */
+#shuqian .guize{display:none; padding:0 20px; position:fixed; left:0; top:0; width:100%; height:100%; background-color:#D0F1F0; z-index:3; font-size:1rem;}
+.guize .gMain{margin-top:10px;}
+.gMain h5{color:#316B19; font-weight:bold; margin-top:20px;}
+
+/* 表单 */
+#tijiao{background-color:rgba(0,0,0,.7);display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index:5;}
+#tijiao .tjBox{position:fixed; width:340px; height:400px; left:50%; top:50%; margin-top:-200px; margin-left:-170px; background-color:#E0E681; border-radius:20px;}
+#tijiao .tjMain{background:url(https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2670807387,2384882258&fm=58) no-repeat center 0; font-size:1.2rem; width:70%; margin:20px auto 0 auto; padding-top:40px;}
+.tjMain .tijiao{position:absolute; left:50%; bottom:-10px; margin-left:-80px; width:160px; display:block; background:url(https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2823961627,3572677526&fm=58) no-repeat;}
+.tjMain p input{width:100%; background:url(); color:#fff; padding:5px;}
+
+/* 动画 */
+#shuqian .animat{position:fixed; top:-120; left:0; width:100%;  z-index:0;}
+.animat s{ position:absolute; width:180px; height:160px; display:block; background-color:red;  z-index:-1;}
+.animat .shun{-webkit-animation:shun 3s; width:60px; height:111px; background:url(${configjscss }/images/newimages/shuqian/p1.png); background-size:cover;}
+.animat .ni{-webkit-animation:ni 2.2s width:60px; height:111px; background:url(${configjscss }/images/newimages/shuqian/p4.png); background-size:cover;}
+.animat .yanshi1{-webkit-animation:shun 2s 1.2s; width:60px; height:111px; background:url(${configjscss }/images/newimages/shuqian/p1.png); background-size:cover;}
+.animat .yanshi2{-webkit-animation:ni 2s 1s; width:60px; height:111px; background:url(${configjscss }/images/newimages/shuqian/p3.png); background-size:cover;}
+.animat .yanshi3{-webkit-animation:ni 2s 0.6s; width:60px; height:111px; background:url(${configjscss }/images/newimages/shuqian/p2.png); background-size:cover;}
+@-webkit-keyframes shun{
+	0% {-webkit-transform:translate(0,0px) rotate(0deg);}
+	100% {-webkit-transform:translate(0,800px) rotate(1440deg);}
+}
+
+@-webkit-keyframes ni{
+	0% {-webkit-transform:translate(0,0px) rotate(0deg);}
+	100% {-webkit-transform:translate(0,800px) rotate(-1440deg);}
+}
+
+@media screen and (max-height:480px){
+	#shuqian .initHeader{font-size:20px;}
+	.initHeader .countPeople{font-size:24px;}
+}
+</style>
+<!-- 登录 -->
+<style>
+.webuploader-container{left:40px; top:10px; opacity:0}
+#login{display:none;position:fixed; z-index:99999999;width:100%; height:100%; top:0; left:0;background-color:rgba(0,0,0,.3);}
+#login .loginbox{border-radius:6px; background-color:#f3f3f3; width:80%;margin:0 auto;height:265px; color:#aaa; text-align:center;padding-top:50px;}
+.loginbox p{border-radius:6px; font-size:1.75rem; text-align:center;}
+.loginbox .loginTit{margin-bottom:80px;color:#333; font-weight:bold;}
+.loginbox a{background-color: #f08300;border-radius:6px; color:#fff;font-size:1.68rem; cursor:pointer; width:40%;height:43px;line-height:43px; border:none; display:inline-block;}
+.loginbox a+a{margin-left:5%;}
+</style>
+
+<!-- 去红包卡券 -->
+<style>
+#quan{display:none;position:fixed; z-index:99999999;width:100%; height:100%;  top:0; left:0;background-color:rgba(0,0,0,.3);}
+#quan .loginbox{border-radius:6px; background-color:#f3f3f3;margin:0 auto; color:#aaa; text-align:center; padding:20px 0;}
+</style>
+
+</head>
+<body>
+<!-- 登录 -->
+<div id="login">
+	<div class="loginbox">
+		<p class="loginTit">您还没有登录</p>
+		<a href="JavaScript:;" class="logon" >登录/注册</a>
+	</div>
+</div>
+
+
+<!-- 去红包卡券 -->
+<div id="quan">
+	<div class="loginbox">
+		<a href="${pathWeb}/user/getCashList.do">点击查看</a>
+	</div>
+</div>
+
+<div id="shuqian">
+	<div class="main">
+		<div class="init">
+			<div class="p1"></div>
+			<!--<div class="p2"><p class="initHeader">已经有<span class="countPeople">${joinNum}</span>人参加了疯狂数钱</p></div>-->
+			<div class="p3"><span class="images"><span class="arrow"></span><img src="${configjscss }/images/newimages/shuqian/100.jpg" width="100%" class="money" id="money"/></span></div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="footer">
+		<span class="col-xs-6"><a href="${pathWeb}/countmoney/redirect.do" class="menu1"><img src="${configjscss }/images/newimages/shuqian/replay.png" width="100%"/></a></span>
+		<span class="col-xs-6"><a href="javascript:;" class="menu3"><img src="${configjscss }/images/newimages/shuqian/lq.png" width="100%"/></a></span>
+	</div>
+	<!-- 排名 -->
+	<div class="paimin">
+		<h4>富豪榜</h4>
+		<table>
+			<thead>
+				<tr>
+					<th>
+						排名
+					</th>
+					<th>
+						昵称
+					</th>
+					<th>
+						金额
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>name</td>
+					<td>$1111.1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>name</td>
+					<td>$1111.1</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>name</td>
+					<td>$1111.1</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>name</td>
+					<td>$1111.1</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="txtCenter">xxxxxxxxxxxxxxxx</p>
+	</div>
+	<!-- 规则 -->
+	<div class="guize">
+		<div class="gMain">
+			<p>
+				今天可玩游戏次数：<span class="countNumber">1</span>/10次<br>
+				游戏总次数：<span class="Number">14</span>/100次
+			</p>
+			<h5>活动时间</h5>
+			<p class="startTimer">2016-05-16 15:00</span><span class="endTimer">2016-12-31 00:00:00</p>
+			<h5>奖项设置</h5>
+			兑奖说明<span class="fc_red">（亲，参与活动后必须填写姓名和手机号码，否则可能无法领奖喔！）</span></br>
+			一等奖：加息券100% 。 奖品数量2<br>
+			二等奖：减时券1年 。 奖品数量5<br>
+			三等奖：红包1000。 奖品数量10<br>
+			<h5>活动说明</h5>
+			<p>
+				爱睡懒觉浮生六记发链接爱上了大家法拉盛安居房了事件法拉盛放辣椒是放辣椒是路附近爱尚帘家纺拉丝机法拉盛福利解散算了就福利解散都老夫就爱上浪费就撒了京东方杀了积分两三积分老师的
+			<p>
+		</div>
+		<p class="txtCenter">xxxxxxxxxxxxxxxx</p>
+	</div>
+
+	<!-- 动画 -->
+	<div class="animat"></div>
+
+</div>
+</body>
+<script>
+var winWidth=$(window).width(),winHeight=$(window).height();
+//设置URL
+	//初始化图片位置
+	function initIMG(){
+		$('#money').width(winWidth*0.5);
+		$('.images').width($('#money').width()).css({marginLeft:-$('.images').width()/2});
+	};
+	initIMG();
+	$('.menu1').attr('href','${pathWeb}/countmoney/redirect.do?t='+new Date().getTime());
+	//设置登录框样式
+	$('.loginbox').css('marginTop',(winHeight-265)/2);
+
+
+//if (${status==0}&&${type==0}) {
+//	$(function(){
+//		$.ajax({
+//			url:'${pathWeb }/countmoney/getMoney.do',
+//			data:{
+//				type:1
+//				},
+//			success: function(data){
+//				var money=$('.count1 span').text();
+//				location.href="${pathWeb }/countmoney/tip.do";
+//			}
+//		})
+//	});
+//}
+$(function(){
+	var num=1,
+		s='<s></s>',
+		r=[1,2,3,4,5,6],
+		posClass=['shun','ni','yanshi1','yanshi2','yanshi3'];
+
+
+	//下钱
+	function downMoney(){
+		num=Math.floor(Math.random()*r.length);
+		for (var i=0,len=r[num]; i<len; i++){
+			$('.animat').append(s);
+		}
+		for (var j=0,len=$('.animat s').length; j<len; j++){
+			var sIndex=Math.floor(Math.random()*winWidth),
+				sClass=Math.floor(Math.random()*posClass.length);
+			$('.animat s').eq(j).css('left',sIndex).removeClass().addClass(posClass[sClass]);
+		}
+	}
+
+
+	//不停地下钱
+	function reDownMoney(){
+		setInterval(function(){
+			if(num++>=3){
+			  $('.animat').html('');
+			  num=0;
+			}
+			downMoney();
+		},2500);
+	}
+
+
+
+	var rIndex,allTime,iindex=0,isplay=true,speed=200,
+		 page2='<div class="play">'+
+				'<div class="countAll">'+
+					'<p class="count1">¥<span>0</span></p>'+
+					'<p class="count2"><span class="second">10</span><span>\'\'</span></p>'+
+				'</div>'+
+				'<div class="playMain">'+
+					'<span class="images" style="bottom:-20%"><span class="arrow"></span><img src="${configjscss }/images/newimages/shuqian/10.jpg" width="100%" class="money" id="money" style="z-index:2"/></span>'+
+				'</div>'+
+			 '</div>',
+		 dataImg=[
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/10.jpg",money:10},
+		      	{src:"${configjscss }/images/newimages/shuqian/20.jpg",money:20},
+		      	{src:"${configjscss }/images/newimages/shuqian/50.jpg",money:50},
+		      	{src:"${configjscss }/images/newimages/shuqian/100.jpg",money:100}
+	          ];
+
+	//手势
+	$(document).on('touchstart','.play',function(e){
+		e.preventDefault();
+	})
+	$(document).on({
+		'touchstart':touch,
+		'touchmove':touch,
+		'touchend':touch
+	},'.money');
+
+	function touch(event){
+		var e=event || window.event;
+     	e.preventDefault();
+		switch (e.type){
+			case 'touchstart':
+				rIndex=Math.floor(Math.random()*dataImg.length);
+				startY= e.originalEvent.changedTouches[0].screenY;
+				break;
+			case 'touchmove':
+				endY= e.originalEvent.changedTouches[0].screenY;
+				break;
+			case 'touchend':
+				slider();
+				break;
+
+		}
+	}
+
+
+	//手势动作开始
+	var target=winHeight+50,$imgbox=$('.images'),isfirst=true;
+	function slider(){
+		if(allTime==0) return;
+		if((startY-endY)>=70){
+			doMove();
+			if($('.play').length) {
+				$('.images').append('<img src='+dataImg[rIndex].src+' width="100%" class="money active" style="z-index:3" />');  //显示  下一张钱的图片
+				iindex++;
+			}
+			if(isfirst){
+				$('.money').eq(1).attr('src','${configjscss }/images/newimages/shuqian/10.jpg');
+				isfirst=false;
+			}
+		}
+	}
+
+	//
+	function doMove(){
+		//进入第二页
+		if(isplay) {
+			$('.main').append(page2);
+			$('.play').show();
+			$('.init').remove();
+			$('#money').addClass('active');
+			downMoney();
+			allTime=parseInt($('.second').text());
+			$('.money').attr('m',10);  //第一张钱是10元
+			initIMG();
+			reDownMoney();
+			isplay=false;
+		}
+		//开始倒计时 去掉箭头
+		if(iindex==1){
+			clearTimeout(doMove.timer);
+			$('.arrow').remove();
+			doMove.timer=setInterval(function(){
+				//判断倒计时是否结束
+				if(allTime==0){
+					clearTimeout(doMove.timer);
+					return;
+				}
+				$('.second').text(--allTime);
+			},1000);
+		}
+		//数完钱后
+		if (!$('.arrow').length) {
+			video.play();
+			$('.money:eq(1)').remove();  //删除显示图——第2张图
+			$('.count1 span').text(parseInt($('.count1 span').text())+parseInt($('.money').attr('m')));	 //总额加上第一张当前图片对应的数额的合
+			$('#money').attr('src',dataImg[rIndex].src);  //准备 数下一张钱的图片 ——把第2张图片的url替换给第一张图片的URL
+			$('.money').attr('m',dataImg[rIndex].money);   //准备 数下一张钱的图片对应的数额
+		}
+	}
+
+	//去登录
+//	$('.logon').click(function(){
+//		var money=$('.count1 span').text();
+//		location.href="${pathWeb }/Consumer/toLogin.do?type=1&&money="+money;
+//	});
+	//点击领取
+//	 $('.menu3').one('click',function(){
+//		 if(${user==null}){
+//			 $('#login').show();
+//		 }else{
+//			 toajax('${pathWeb }/countmoney/getMoney.do');
+//		 }
+//	})
+
+//function toajax(url){
+//		$.ajax({
+//			url:url,
+//			data:{
+//				type:2,
+//				money:$('.count1 span').text()
+//				},
+//			success: function(data){
+//				var money=$('.count1 span').text();
+//				location.href="${pathWeb }/countmoney/tip.do?money="+money;
+//			}
+//		})
+//	}
+//})
+</script>
+</html>

@@ -1,0 +1,38 @@
+p{margin:0;}
+body{height:100%;}
+/* 介绍页 */
+#OgActivity2det{height:100%; position:relative; background:url(../../img/oyh/g2/1.jpg) no-repeat center; background-size:100% 100%;}
+#gq{position:absolute;top:79%;right:8%; width:23.13%;}
+#gq img{width:100%;}
+/* #gq span{position:absolute; top:0; left:-100%; margin-left:50px;} */
+#OgActivity2det .txt{position:absolute; top:2%; left:16%; padding:2% 2% 4% 2%; background:url(../../img/oyh/g2/3.png) no-repeat; background-size:inherit; text-align:center; font-size:1rem;}
+.txt .p1{margin-top:4%;}
+
+/* 详情页 */
+#OgActivity2js{height:240%;}
+.height100{height:100%;}
+#OgActivity2js .p1{height:20.4%; background:url(../../img/oyh/g2/a1.jpg) no-repeat center; background-size:100% 100%;}
+#OgActivity2js .p2{height:18.8%; background:url(../../img/oyh/g2/a2.png) no-repeat center; background-size:100% 100%;}
+#OgActivity2js .p3{height:30.5%; background:url(../../img/oyh/g2/a3.png) no-repeat center; background-size:100% 100%;}
+#OgActivity2js .p4{height:30.5%; background:url(../../img/oyh/g2/a4.png) no-repeat center; background-size:100% 100%;}
+#OgActivity2js .obtn{width:49.0625%; display:block; margin:0 auto;}
+#btn1{width:28%; position:absolute; bottom:2%; left:16%;}
+#btn2{width:28%; position:absolute; bottom:2%; left:56%;}
+
+/* 列表页 */
+#list .blue{color:#5db0dc; text-align:center;}
+#list .orange{color:#ef721a; width:46%;}
+#list .yel{color:#bbd530;}
+#list .align{text-align:center;}
+#list{background:url(../../img/oyh/g2/b1.jpg) no-repeat center; background-size:100% 100%; font-size:1.25rem;}
+#list .titlist{font-size:3rem; text-align:center; color:#fff; padding:2% 0;}
+#list .align{color:#fff; font-size:1.4rem; margin:5px 0;}
+#table{width:90%; margin:0 auto; border:solid #307ba3; border-width:3px 0;}
+#table tr{}
+#table td{border:2px solid transparent;}
+#table td p{background-color:#fff; height:36px; line-height:36px;}
+#list .radius{border-radius:7px; padding:1px 4px; background-color:#ef721a; color:#fff; margin:0 4px;}
+.align .bgred{background-color:red;}
+#table td .Yel{background-color:#bbd530;}
+#list .btns{padding-bottom:5%;}
+.btns .obtn{width:30%; display:inline-block; margin-left:13%;}
