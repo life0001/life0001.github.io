@@ -1,0 +1,155 @@
+@charset "UTF-8";
+#visa{width:1200px; margin:0 auto; font-size:12px; color:#666; margin-top:20px;}
+#visa .mr0{margin-right:0px;}
+#visa .btNone{border-bottom:none;}
+#visa_left .schedule, #visa_left .newVisa, #visa_left .visa_top9, #visa_left .visaProblem{padding-left: 14px;}
+#visa a{color:#666;}
+#visa .fontOrange{color:#ff9913;}
+#visa .navMore{color:#ff9913; }
+.visa_cocntent h2{font-size:18px; color:#333;  margin-bottom:12px;}
+/*左侧*/
+#visa_left{width:235px; overflow:hidden;}
+#visa_left .navTabs{border:3px solid #008cd6; padding-bottom: 20px;}
+.navTabs .navTabs_tit{background-color: #008cd6; padding-top:11px;}
+.navTabs_tit a{font-size:16px; padding-bottom:7px; border-bottom:2px solid #008cd6; margin-left:20px; color:#fff!important; float:left;}
+.navTabs_tit .titCur{font-weight:bold; border-color:#ff9913;}
+#visa_left .navContents{padding:0 14px; display:none;}
+#visa_left .navOn{display:block;}
+.navContents .tabsAsia{padding-right:10px;}
+.navContents .tabs{position:relative;}
+.navContents li .navMore{position:absolute; bottom:0px; right:0px;}
+.tabs span{display:none;}
+.navContents li{margin-top: 16px; border-bottom:1px solid #d2d2d2; padding-bottom: 13px; padding-right:3px;  padding-left:4px;}
+.navContents li a{margin-right:8px; float: left; margin-top:8px;}
+.navContents li h3{font-size:14px; color:#333; font-weight: bold; margin-bottom:10px; }
+
+/*出签率*/
+#visa_left .visaRate{ margin-top:30px;}
+.visaRate h3{background-color:#008cd6; font-size:24px; text-align: center; color:#fff;}
+.visaRate h3 span{font-size:42px; margin-left:5px;}
+.visaRate .visaRateBg{background:url(../../img/svg1/visa_qianz.jpg) no-repeat; width:223px; height:198px;}
+/*签证进度查询*/
+#visa_left .schedule{ margin-top:15px; color:#333;}
+form#visaSelect li{margin-top:15px; overflow:hidden;}
+form#visaSelect li .imgUpdate{border:1px solid #ccc; display:inline-block;}
+form#visaSelect label, #visaSelect input[type="text"]{float:left;}
+form#visaSelect label{height:30px; line-height: 30px; margin-right:5px;}
+#visaSelect input[type="text"]{width:156px; padding:6px; border:1px solid #ccc;}
+#visaSelect #SelectVerificationCode{width:60px; margin-right:5px;}
+.imgUpdate img{width:65px; margin-top:2px; }
+.imgUpdate a{width:24px; height:28px; display:inline-block; background:url(../../img/svg1/visa_bg.png) 3px 6px no-repeat;}
+.scheduleSubmit a{height:27px; line-height: 27px; margin-left:5px;}
+.scheduleSubmit input[type="submit"]{width:113px; height:27px; display:inline-block; background:url(../../img/svg1/visa_bg.png) 0 bottom; cursor:pointer}
+
+/*最新出签*/
+#visa_left .newVisa{margin-top:38px; border-bottom:1px solid #e5e5e5; padding-bottom: 18px;}
+.newVisa p{overflow:hidden; margin-top:10px;}
+.newVisa span{float:right;}
+
+/*签证热销排行*/
+#visa_left .visa_top9{ margin-top: 14px; padding-bottom:10px; border-bottom: 1px solid #e5e5e5}
+.visaTopList p{width:212px; overflow:hidden; white-space: nowrap; text-overflow:ellipsis; margin-bottom:10px;}
+.visaTopList p span{width:12px; height:12px; margin-right:4px; background:url(../../img/svg1/visa_bg.png) 0px -239px no-repeat; color:#fff; display:inline-block; text-align: center; line-height: 12px;}
+.visaTopList .visaTop1 span{background-position: 0 -188px;}
+.visaTopList .visaTop2 span{background-position: 0 -205px;}
+.visaTopList .visaTop3 span{background-position: 0 -222px;}
+
+/*常见问题*/
+#visa_left .visaProblem{margin-top: 14px;}
+.ProblemList p{ width:192px; text-overflow:ellipsis; overflow:hidden; white-space: nowrap; margin-bottom:8px;}
+.ProblemList p:before{content:''; display:inline-block; width:13px; height:13px; margin-right:4px; background:url(../../img/svg1/visa_bg.png) 0px -169px no-repeat; vertical-align:middle;}
+
+/*右侧*/
+#visa_right{width:954px;}
+.RegionHeader li{float:left; margin-right:10px; position:relative; }
+
+/*城市选择*/
+#visa_right .Region_city{width:140px; }
+.RegionHeader .cityEventShow{height:44px; line-height:44px;border:1px solid #ff9913; background:url(../../img/svg1/visa_bg.png) 15px -40px no-repeat; text-align: center; }
+.RegionHeader li .Arrow{position:absolute; width:10px; height:6px; right:15px; top:19px; background:url(../../img/svg1/visa_bg.png) 0 -89px no-repeat;}
+.RegionHeader .curCity{text-align: center; font-size:16px; color:#333; height:21px; line-height: 21px;}
+/*城市选择 下拉列表*/
+.Region_city .cityEventHide{width:386px; position:absolute; top:43px; left:0; border:1px solid #ff9913; padding:16px; display:none; z-index: 2; background-color: #fff;}
+.hotTitle a{float:left; height:30px; line-height: 30px; color:#333!important; padding:0 9px; border-bottom:1px solid #ddd;}
+.hotTitle .cityCur{border-bottom:2px solid #ffbf6b; color:#008cd6!important;}
+.cityEventHide li{display:none;}
+.cityEventHide .cityOn{display:block;}
+.cityEventHide li a{margin-right:15px; float:left; padding:9px;}
+.cityEventHide li a:hover{color:#ff9913!important}
+
+/*搜索*/
+.RegionHeader .Region_Select{width:618px; border:1px solid #ff9913; height:44px; line-height:44px;}
+.Region_Select .SelectEventShow{position:relative; width:101px;}
+.SelectEventShow .curSelect{text-align: center; color:#333; font-size:16px; display:inline-block; width:100%; height:34px; line-height:34px; border-right:1px solid #c9c9c9;}
+li.Region_Select .SelectEventHover{position:absolute; display:none; width:102px; top:42px; left:-1px; border:1px solid #ff9913; text-align: center; z-index: 2; background-color: #fff;}
+.SelectEventHover a{background-color: #fff; height:36px; line-height: 36px; display:block;}
+.SelectEventHover a:hover{background-color: #eee;}
+.Region_Select input{float:left;}
+.Region_Select input[type="text"]{padding:12px; width:391px;}
+.Region_Select input[type="button"]{color:#fff; width:102px; height:44px; background-color:#ff9913; cursor:pointer; }
+.visaGuodu{height:44px; line-height: 44px;}
+.visaGuodu a{margin-right:2px; color:#999!important;}
+
+/*地图*/
+#visaMap{margin-top:24px; margin-left:-8px; width:965px; height:533px; position:relative; background:url(../../img/svg1/visa_map.png) no-repeat center;}
+#visaMap .floatTxt{position:absolute; font-size:20px; z-index: 1; color:#fff; cursor:pointer;}
+#visaMap .TXTbmz{left:155px; top:130px;}
+#visaMap .TXTnmz{left:262px; top:360px;}
+#visaMap .TXToz{left:472px; top:142px;}
+#visaMap .TXTfz{left:487px; top:282px;}
+#visaMap .TXTyz{left:645px; top:142px;}
+#visaMap .TXTdyz{left:750px; top:380px;}
+#visaMap .mapContent{position:absolute; top:-100%; left:-100%; padding-left: 16px; color:#fff; background:url(../../img/svg1/visa_map_bgImg.png) no-repeat; width:478px; height:148px; z-index: 222222;}
+#visaMap .mapContent a{color:#fff;}
+.mapContent .bit{position:absolute; background:url(../../img/svg1/visa_map_bgImg2.png); height:69px; width:2px; left:0px; top:148px;}
+.mapContent:before{content: ''; position:absolute; background:url(../../img/svg1/visa_map_bgImg3.png) no-repeat; height:4px; width:4px; left:-1px;top:217px;}
+.mapContent a.fr{line-height: 148px; margin-right:20px;}
+.mapContent h3{font-size:18px; margin-bottom:15px; margin-top:12px;}
+.mapContent h3 span.titZh{margin-right:10px}
+.mapContentTxt a{margin-right:8px; float:left;}
+
+.jvectormap-zoomin{display:none;}
+.jvectormap-zoomout{display:none;}
+/*轮播*/
+#visa_right .visaSlider{margin-top:27px; position:relative;}
+.SliderImg a{display:none;}
+.visaSlider .on{display:block;}
+.visaSlider .sliderNavBox{position:absolute; right:0; bottom:5px;}
+.sliderNavBox a{margin-right:10px; width:12px; height:12px; background:url(../../img/svg1/visa_bg.png) 0 -274px no-repeat; display: inline-block;}
+.sliderNavBox .navCur{background-position:0 -257px;}
+
+/*热门签证*/
+#visa_right .visa_hot{margin-top:20px;}
+.visa_hot p.hot_tit{font-size:24px; color:#333; background:url(../../img/svg1/visa_bg.png) 127px -290px no-repeat; padding:0 20px; margin-bottom: 10px;}
+p.hot_tit a{font-size:12px; line-height: 30px; color:#333!important;}
+.visa_hot ul{width:980px;}
+.visa_hot li{position:relative; float:left; width:305px; height:120px; padding:30px; border:1px solid #fff; margin-right:18px; margin-bottom:10px; overflow:hidden;}
+.visa_hot li:hover{border:1px solid #ff9913;}
+.visa_hot li img{float:left; margin-right:12px;}
+.visa_hot li .visa_hotInstructions{width:100px; margin-right:20px;  margin-top:34px;}
+.visa_hot li a{position:absolute; color:#333!important; font-size:18px; width:100%; height:100%; line-height: 90px; left:0; top:0; text-align: center; padding-right: 35px;}
+.visa_hot .visaPrice{font-size:18px;}
+
+/*签证流程*/
+#visa_right .visaProcess{margin-top:20px;}
+.visaProcess h2{font-size:24px; color:#333; padding-left: 20px;}
+.visaProcess .visa_processCon{background:url(../../img/svg1/visa_process.png) center no-repeat; height:310px;}
+
+/*热门免签目的地*/
+.hotDestination h2 a{color:#333!important; font-size:12px;}
+.hotDestination h2{font-size:24px; padding-left: 20px; color:#333; line-height: 30px;}
+.hotDestination .hotImgs{width:960px; margin-top: 20px;}
+.hotImgs a{float:left; margin-right:6px; padding:7px;}
+.hotImgs a:hover{background: url(../../img/svg1/visa_bg_yy.png);}
+
+/*底部*/
+#comment{margin-top:20px; margin-bottom:40px; border-top:1px solid #ccc;}
+#comment h2{margin-top:30px; font-size:24px; color:#333; padding-left: 14px}
+#comment ul{margin-top:10px;}
+#comment li{float:left; width:268px; background-color: #fafafa; padding:10px 5px; margin-left:42px;}
+#comment li:first-child{margin-left:0;}
+#comment li .visaTalkabout{height:50px; overflow:hidden;}
+#comment li p, #comment h3{padding-left: 8px;}
+#comment h3{ margin-top:10px; font-size:18px; margin-bottom: 5px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden;}
+#comment h3 a{color:#333; }
+#comment .visaUserInfo{background:url(../../img/svg1/visa_bg.png) 0px -117px no-repeat; padding-left: 20px; margin-top:15px; border-top:1px solid #999; padding-top:5px;}

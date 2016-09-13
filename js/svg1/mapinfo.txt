@@ -1,0 +1,52 @@
+{
+    "info":[
+        {
+            "tits":"北美洲",
+            "titEn":"NORTH AMERICA",
+            "Country":["加拿大","墨西哥","美国","古巴","海地"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.baidu.com",
+            "links":["http://www.qq.com","http://www.qq.comb","http://www.qq.com","http://www.qq.com","http://www.qq.com5"]
+        },
+        {
+            "tits":"南美洲",
+            "titEn":"nan AMERICA",
+            "Country":["巴西","阿根廷","墨西哥","智利"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.qq.com",
+            "links":["http://www.qq.com1","http://www.qq.com2","http://www.qq.com3","http://www.qq.com4"]
+        },
+        {
+            "tits":"欧洲",
+            "titEn":"nan AMERICA",
+            "Country":["巴西5","阿根廷","墨西哥","智利"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.qq.com",
+            "links":["http://www.qq.com","http://www.qq.com","http://www.qq.com","http://www.qq.com"]
+        },
+        {
+            "tits":"非洲",
+            "titEn":"nan AMERICA",
+            "Country":["巴西4","阿根廷","墨西哥","智利"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.qq.com",
+            "links":["http://www.qq.com","http://www.qq.com","http://www.qq.com","http://www.qq.com"]
+        },
+        {
+            "tits":"亚洲",
+            "titEn":"nan AMERICA",
+            "Country":["巴西3","阿根廷","墨西哥","智利"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.qq.com",
+            "links":["http://www.qq.com","http://www.qq.com","http://www.qq.com","http://www.qq.com"]
+        },
+        {
+            "tits":"大洋洲",
+            "titEn":"nan AMERICA",
+            "Country":["巴西2","阿根廷","墨西哥","智利"],
+            "imgs":"../../img/svg1/visa_map_continent.png",
+            "link":"http://www.qq.com",
+            "links":["http://www.qq.com","http://www.qq.com","http://www.qq.com","http://www.qq.com"]
+        }
+    ]
+}
