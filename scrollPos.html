@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jquery扩展插件--滚动条滚动到指定位置</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <style>
+        body{height:2000px;}
+        .topos{width:50px; height:50px; background-color:red; position:fixed; right:20px; bottom:100px; display:none;}
+        pre{background-color:#f6f6f6;}
+    </style>
+    <script src="js/jquery.1.9.1.js"></script>
+    <script src="js/scrollPos.js"></script>
+</head>
+<body>
+    <div class="topos"></div>
+    <pre>
+        <p>滚动条在200时显示按钮<p>点击按钮后滚动到50的位置</p></p>
+
+    $('.topos').scrollPos({
+        pos: 200,
+        toPos: 100
+    })
+    </pre>
+</body>
+<script>
+    $('.topos').scrollPos({
+        pos: 200,
+        toPos: 100
+    })
+</script>
+</html>
