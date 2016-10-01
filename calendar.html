@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>calendar</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/calendar/calendar.css"/>
+    <script src="js/require.js"></script>
+</head>
+<body>
+<div class="abc clearfix">
+    <div class="box">
+        <p class="tit">示例1：单日历</p>
+<pre>
+var calendar = new Calendar({
+    id: ['calendar'],
+    outputId: ['a']
+});
+calendar.init();
+</pre>
+        <input type="text" id="a" placeholder="请选择日期"/>
+
+        <div id="calendar" class="calendar"></div>
+    </div>
+
+    <div class="box">
+        <p class="tit">示例2：单日历，指定年月日的日历</p>
+<pre>
+var calendar1 = new Calendar({
+            id: ['calendar2'],
+            outputId: ['b'],
+            targetDate: 20290305
+        });
+calendar1.init();
+</pre>
+        <input type="text" id="b" placeholder="请选择日期"/>
+
+        <div id="calendar2" class="calendar"></div>
+    </div>
+    <!--耦合双日历-->
+    <div class="box">
+        <p class="tit">示例3：耦合双日历</p>
+<pre>
+var calendar2 = new Calendar({
+            id: ['calendar3', 'calendar4'],
+            outputId: ['c', 'd']
+        });
+calendar2.init();
+</pre>
+        <p id="c" class="text">请选择日期</p>
+
+        <div id="calendar3" class="calendar"></div>
+    </div>
+    <div class="box">
+        <input type="text" id="d" placeholder="请选择日期"/>
+
+        <div id="calendar4" class="calendar"></div>
+    </div>
+</div>
+</body>
+<script>
+    require(['js/calendar/calendar'], function (Calendar) {
+        // 示例1：单日历
+        var calendar = new Calendar({
+            id: ['calendar'],
+            outputId: ['a']
+        });
+        calendar.init();
+
+        // 示例2：单日历，指定年月日的日历
+        var calendar1 = new Calendar({
+            id: ['calendar2'],
+            outputId: ['b'],
+            targetDate: 20290305
+        });
+        calendar1.init();
+
+        // 示例3：耦合双日历
+        var calendar2 = new Calendar({
+            id: ['calendar3', 'calendar4'],
+            outputId: ['c', 'd']
+        });
+        calendar2.init();
+    });
+</script>
+</html>
