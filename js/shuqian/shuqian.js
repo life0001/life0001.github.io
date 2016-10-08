@@ -18,14 +18,14 @@
 //        })
 //    });
 //}
-$(function(){
+$(function () {
     var shuqian = {
         winWidth: $(window).width(),
         winHeight: $(window).height(),
         num: 1,
         allTime: 10,
         s: '<s></s>',
-        r: [1,2,3,4,5,6],
+        r: [1, 2, 3, 4, 5, 6],
         delay: 2500,
         startY: 0,
         endY: 0,
@@ -35,26 +35,26 @@ $(function(){
         isplay: true,
         isfirst: true,
         speed: 200,
-        page2: '<div class="play">'+
-                '<div class="countAll">'+
-                '<p class="count1">¥<span>0</span></p>'+
-                '<p class="count2"><span class="second">10</span><span>\'\'</span></p>'+
-                '</div>'+
-                '<div class="playMain">'+
-                '<span class="images"><span class="arrow"></span><img src="img/shuqian/100.jpg" width="100%" class="money" id="money"/></span>'+
-                '</div>'+
+        page2: '<div class="play">' +
+                    '<div class="countAll">' +
+                        '<p class="count1">¥<span>0</span></p>' +
+                        '<p class="count2"><span class="second">10</span><span>\'\'</span></p>' +
+                    '</div>' +
+                    '<div class="playMain">' +
+                        '<span class="images"><span class="arrow"></span><img src="img/shuqian/100.jpg" width="100%" class="money" id="money"/></span>' +
+                    '</div>' +
                 '</div>',
         dataImg: [
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/10.jpg", money:10},
-            {src:"img/shuqian/20.jpg", money:20},
-            {src:"img/shuqian/50.jpg", money:50},
-            {src:"img/shuqian/100.jpg", money:100}
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/10.jpg", money: 10},
+            {src: "img/shuqian/20.jpg", money: 20},
+            {src: "img/shuqian/50.jpg", money: 50},
+            {src: "img/shuqian/100.jpg", money: 100}
         ],
 
         init: function () {
@@ -66,10 +66,10 @@ $(function(){
          */
         downMoney: function () {
             this.num = Math.floor(Math.random() * this.r.length);
-            for (var i = 0, len = this.r[this.num]; i<len; i++) {
+            for (var i = 0, len = this.r[this.num]; i < len; i++) {
                 $('.animat').append(this.s);
             }
-            for (var j=0, len = $('.animat s').length; j<len; j++) {
+            for (var j = 0, len = $('.animat s').length; j < len; j++) {
                 var sIndex = Math.floor(Math.random() * this.winWidth),
                     sClass = Math.floor(Math.random() * this.posClass.length);
                 $('.animat s').eq(j).css('left', sIndex).removeClass().addClass(this.posClass[sClass]);
@@ -84,17 +84,17 @@ $(function(){
             setInterval(function () {
                 if (_this.num++ >= 3) {
                     $('.animat').html('');
-                    num=0;
+                    num = 0;
                 }
                 _this.downMoney();
-            },_this.delay);
+            }, _this.delay);
         },
 
         /**
          * 手势动作开始
          */
         slider: function () {
-            if( this.allTime == 0) return;
+            if (this.allTime == 0) return;
             if ((this.startY - this.endY) >= 70) {
                 this.doMove();
                 if ($('.play').length) {
@@ -109,7 +109,7 @@ $(function(){
         },
         doMove: function () {
             // 进入第二页
-            var timer,  _this = this;
+            var timer, _this = this;
             if (this.isplay) {
                 $('.main').append(this.page2);
                 $('.play').show();
@@ -117,7 +117,7 @@ $(function(){
                 $('#money').addClass('active');
                 this.downMoney();
                 this.allTime = +$('.second').text();
-                $('.money').attr('m',10);  // 第一张钱是10元
+                $('.money').attr('m', 10);  // 规定首张面值10元
                 this.reDownMoney();
                 this.isplay = false;
             }
@@ -133,11 +133,11 @@ $(function(){
                         return;
                     }
                     $('.second').text(--_this.allTime);
-                },1000);
+                }, 1000);
             }
             // 数完钱后
             if (!$('.arrow').length) {
-                $('.money:eq(1)').remove();  // 删除显示图——第2张图
+                $('.money:eq(1)').remove();  // 删除显示图——最上面一张图（第2张图）
                 $('.count1 span').text(+$('.count1 span').text() + +$('.money').attr('m'));	 // 总额加上第一张当前图片对应的数额的合
                 $('#money').attr('src', this.dataImg[this.rIndex].src);  // 准备 数下一张钱的图片 ——把第2张图片的url替换给第一张图片的URL
                 $('.money').attr('m', this.dataImg[this.rIndex].money);   // 准备 数下一张钱的图片对应的数额
@@ -169,7 +169,7 @@ $(function(){
                     'touchstart': this.touch,
                     'touchmove': this.touch,
                     'touchend': this.touch
-                },'.money');
+                }, '.money');
 
                 // 去登录
                 $('.logon').click(function () {

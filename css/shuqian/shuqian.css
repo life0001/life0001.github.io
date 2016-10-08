@@ -49,19 +49,19 @@
 /* 动画 */
 #shuqian .animat{position:fixed; top:-10%; left:0; width:100%;  z-index:0;}
 .animat s{ position:absolute; width:10%; height:10%; display:block;}
-.animat .shun{-webkit-animation:shun 3s; background:url(../../img/shuqian/p1.png); background-size:cover;}
-.animat .ni{-webkit-animation:ni 2.2s background:url(../../img/shuqian/p4.png); background-size:cover;}
-.animat .yanshi1{-webkit-animation:shun 2s 1.2s; background:url(../../img/shuqian/p1.png); background-size:cover;}
-.animat .yanshi2{-webkit-animation:ni 2s 1s; background:url(../../img/shuqian/p3.png); background-size:cover;}
-.animat .yanshi3{-webkit-animation:ni 2s 0.6s; background:url(../../img/shuqian/p2.png); background-size:cover;}
+.animat .shun{-webkit-animation:shun 5s; background:url(../../img/shuqian/p1.png); background-size:cover;}
+.animat .ni{-webkit-animation:ni 4.2s background:url(../../img/shuqian/p4.png); background-size:cover;}
+.animat .yanshi1{-webkit-animation:shun 4s 1.3s; background:url(../../img/shuqian/p1.png); background-size:cover;}
+.animat .yanshi2{-webkit-animation:ni 4s 1s; background:url(../../img/shuqian/p3.png); background-size:cover;}
+.animat .yanshi3{-webkit-animation:ni 4s 0.7s; background:url(../../img/shuqian/p2.png); background-size:cover;}
 @-webkit-keyframes shun{
 	0% {-webkit-transform:translate(0,0px) rotate(0deg);}
-	100% {-webkit-transform:translate(0,2000px) rotate(1440deg);}
+	100% {-webkit-transform:translate(0,2200px) rotate(1440deg);}
 }
 
 @-webkit-keyframes ni{
 	0% {-webkit-transform:translate(0,0px) rotate(0deg);}
-	100% {-webkit-transform:translate(0,2000px) rotate(-1440deg);}
+	100% {-webkit-transform:translate(0,2200px) rotate(-1440deg);}
 }
  /*登录*/
 .webuploader-container{left:40px; top:10px; opacity:0}
