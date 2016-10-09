@@ -125,7 +125,7 @@ define(function () {
             this.html += '<span class="fc_gray">' + (preMonthDays - (date_preMonthDays - 1) + i) + '</span>';
         }
         // 清空dom前先移除事件绑定
-        var el = this.$el(id, 'optional'),   // optional是class名可选日期的元素
+        var el = this.$el(id, 'optional'),                                               // optional是class名可选日期的元素
             j = el.length;
         while (j--) {
             el[j].removeEventListener('click', this.getDate, false);
