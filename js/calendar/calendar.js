@@ -11,14 +11,14 @@ define(function () {
                 this.outputId[i] = c_data.outputId[i]
             }
             if (this.id.length > 1) {
-                this.isAddCalendarByOne = true;     // 是否增加一个耦合日历（双日历）
+                this.isAddCalendarByOne = true;      // 是否增加一个耦合日历（双日历）
             }
             this.targetId = this.id[1];              // 在这个id元素内添加第2个日历（耦合日历）
-            this.id = this.id[0];                     // 在这个id元素内添加1个日历
-            this.targetOutputId = this.outputId[1]; // 点击该id元素时会展示出对应的耦合日历（第2个日历,须先生成第1个日历）及输出用户选择的日期值也在该元素上显示
+            this.id = this.id[0];                    // 在这个id元素内添加1个日历
+            this.targetOutputId = this.outputId[1];  // 点击该id元素时会展示出对应的耦合日历（第2个日历,须先生成第1个日历）及输出用户选择的日期值也在该元素上显示
             this.outputId = this.outputId[0];        // 点击该id元素时会展示出对应的日历，及输出用户选择的日期值也在该元素上显示
         }
-        this.date = c_data.targetDate;                // 根据这个日期值来生成对应的日历
+        this.date = c_data.targetDate;               // 根据这个日期值来生成对应的日历
     }
 
     // 日历dom结构
@@ -75,16 +75,16 @@ define(function () {
                 year: new Date(date.year, eMonth, 1).getFullYear(),             // 目标年
                 month: new Date(date.year, eMonth, 1).getMonth(),               // 目标月，返回0-11
                 week: new Date(date.year, eMonth, 1).getDay(),                  // 当月1号星期几
-                curMonthDays: new Date(date.year, eMonth + 1, 0).getDate(),    // 当月总天数,
-                curDay: date.day                                                     // 目标日
+                curMonthDays: new Date(date.year, eMonth + 1, 0).getDate(),     // 当月总天数,
+                curDay: date.day                                                // 目标日
             }
         } else {
-            return {                                                             // 未传参数（目标年份）的首次调用
-                year: year,                                                      // 当年
-                month: month,                                                    // 当月，返回0-11
-                week: new Date(year, month, 1).getDay(),                         // 当月1号星期几
+            return {                                                            // 未传参数（目标年份）的首次调用
+                year: year,                                                     // 当年
+                month: month,                                                   // 当月，返回0-11
+                week: new Date(year, month, 1).getDay(),                        // 当月1号星期几
                 curMonthDays: new Date(year, month + 1, 0).getDate(),           // 当月总天数,
-                curDay: curDay                                                   // 今日
+                curDay: curDay                                                  // 今日
             }
         }
     };
@@ -108,9 +108,9 @@ define(function () {
 
     // 添加dom
     Calendar.prototype.addDom = function (Data, $outputId, id, one) {
-        if (one) this.$el(id).innerHTML = this.html;                                    // 添加静态dom
+        if (one) this.$el(id).innerHTML = this.html;                                     // 添加静态dom
         this.html = '';
-        this.$el(id, 'date')[0].innerHTML = Data.year + '年' + (Data.month + 1) + '月'; // 获取头部年月
+        this.$el(id, 'date')[0].innerHTML = Data.year + '年' + (Data.month + 1) + '月';  // 获取头部年月
         var $day = this.$el(id, 'days')[0];
         this.getPreMonthDays($day, Data, id);
         this.getCurMonthDays($day, Data);
@@ -120,12 +120,12 @@ define(function () {
     // 获取 本月 或 目标月 1号之前的天数
     Calendar.prototype.getPreMonthDays = function (eDay, data, id) {
         var preMonthDays = new Date(data.year, data.month, 0).getDate(),
-            date_preMonthDays = data.week != 0 ? data.week : 7;               // 获取上月的天数
+            date_preMonthDays = data.week != 0 ? data.week : 7;                          // 获取上月的天数
         for (var i = 0; i < date_preMonthDays; i++) {
             this.html += '<span class="fc_gray">' + (preMonthDays - (date_preMonthDays - 1) + i) + '</span>';
         }
         // 清空dom前先移除事件绑定
-        var el = this.$el(id, 'optional'),       // ID 和 optional是class名可选日期的元素
+        var el = this.$el(id, 'optional'),       										 // ID 和 optional是class名可选日期的元素
             j = el.length;
         while (j--) {
             el[j].removeEventListener('click', this.getDate, false);
@@ -158,20 +158,20 @@ define(function () {
                 if (data.month == month) {
                     if (i < data.curDay) {                                                 // 今日之前日期
                         this.html += '<span class="fc_gray">' + i + '</span>';
-                    } else if (i == data.curDay) {                                        // 今日标记
+                    } else if (i == data.curDay) {                                         // 今日标记
                         this.html += '<span date=' + iyear + iMonth + days + ' class="cur optional ' + this.getHolidayInfo(im, i) + '</span>';
-                    } else {                                                              // 今日之后几天
+                    } else {                                                               // 今日之后几天
                         this.html += '<span date=' + iyear + iMonth + days + ' class="optional ' + this.getHolidayInfo(im, i) + '</span>';
                     }
-                } else if (data.month < month) {                                         // 当年 月份小于当月
+                } else if (data.month < month) {                                           // 当年 月份小于当月
 
                     this.html += '<span class="fc_gray">' + i + '</span>';
-                } else {                                                                  // 当年 月份大于当月
+                } else {                                                                   // 当年 月份大于当月
                     this.html += '<span date=' + iyear + iMonth + days + ' class="optional ' + this.getHolidayInfo(im, i) + '</span>';
                 }
-            } else if (iyear < year) {                                                   // 小于当年
+            } else if (iyear < year) {                                                     // 小于当年
                 this.html += '<span class="fc_gray">' + i + '</span>';
-            } else {                                                                     // 大于当年
+            } else {                                                                       // 大于当年
                 this.html += '<span date=' + iyear + iMonth + days + ' class="optional ' + this.getHolidayInfo(im, i) + '</span>';
             }
         }
