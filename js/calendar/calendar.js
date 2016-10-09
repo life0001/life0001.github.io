@@ -96,8 +96,9 @@ define(function () {
         } else {
             var i,
                 array = [],
-                all = document.getElementById(id).getElementsByTagName("*");
-            for (i = 0; i < all.length; i++) {
+                all = document.getElementById(id).getElementsByTagName("*"),
+                len = all.length;
+            for (i = 0; i < len; i++) {
                 if (all[i].className.indexOf(clas) != -1) {
                     array.push(all[i]);
                 }
