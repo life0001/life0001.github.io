@@ -28,21 +28,21 @@ define(function () {
          */
         html:
         '<ul>' +
-        '<li class="header" class="clearfix">' +
-        '<span class="date"></span>' +
-        '<a href="javascript:;" class="arrow left">上月</a>' +
-        '<a href="javascript:;" class="arrow right">下月</a>' +
-        '</li>' +
-        '<li class="week clearfix">' +
-        '<span class="weekend">日</span>' +
-        '<span>一</span>' +
-        '<span>二</span>' +
-        '<span>三</span>' +
-        '<span>四</span>' +
-        '<span>五</span>' +
-        '<span class="weekend">六</span>' +
-        '</li>' +
-        '<li class="days clearfix"></li>' +
+            '<li class="header" class="clearfix">' +
+                '<span class="date"></span>' +
+                '<a href="javascript:;" class="arrow left">上月</a>' +
+                '<a href="javascript:;" class="arrow right">下月</a>' +
+            '</li>' +
+            '<li class="week clearfix">' +
+                '<span class="weekend">日</span>' +
+                '<span>一</span>' +
+                '<span>二</span>' +
+                '<span>三</span>' +
+                '<span>四</span>' +
+                '<span>五</span>' +
+                '<span class="weekend">六</span>' +
+            '</li>' +
+            '<li class="days clearfix"></li>' +
         '</ul>',
 
         /**
