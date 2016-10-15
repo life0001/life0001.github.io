@@ -4,8 +4,8 @@ body{font-size:0.2rem;}
 #pwf{height:100%; }
 #left{width:17%; padding:2%;}
 #left .navList{margin-top:10%;  }
-.navList a{color:#666; padding:.05rem 0; text-align: center}
-.navList li{margin-bottom:6%;}
+.navList a{color:#666; text-align: center}
+.navList li{line-height:.5rem;}
 .navList .cur a{border-bottom:1px dashed #666;}
 #right{width:79%; background-color:#f6f6f6;}
 #main .bg1{height:100%; background:url(../img/bg.jpg) no-repeat center; background-size:100% 100%;}

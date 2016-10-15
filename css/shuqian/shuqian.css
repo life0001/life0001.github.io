@@ -1,6 +1,7 @@
 ﻿html{font-size:16px;}
 .height100{height:100%;}
 #shuqian{font-size:1.2rem;}
+#shuqian .main{position:relative;overflow:hidden;}
 #shuqian .init{background:url(../../img/shuqian/bg.jpg) center 0; background-size:100%; position:relative; overflow:hidden;}
 .main p{margin:0;}
 .init .p1{background:url(../../img/shuqian/bg1.jpg) center 0; background-size:cover; height:41.881%;}
