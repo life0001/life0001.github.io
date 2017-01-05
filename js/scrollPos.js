@@ -3,14 +3,15 @@
         var $this = ele,   // 回到顶部按钮的class/id
             pos = options.pos,
             scrollPos = options.toPos,
-            scrolltop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-        this.show = function (pos) {
-            if (scrolltop > pos) {
-                $this.show();
-            } else {
-                $this.hide();
-            }
-        };
+            scrolltop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop,
+            _show = function (pos) {
+                if (scrolltop > pos) {
+                    $this.show();
+                } else {
+                    $this.hide();
+                }
+            };
+        
         this.init = function () {
             var _this = this;
             $this.on('click', function () {
@@ -18,7 +19,7 @@
             });
             $(window).scroll(function () {
                 scrolltop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-                _this.show(pos);
+                _show(pos);
             });
         };
     }
