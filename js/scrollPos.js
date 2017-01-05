@@ -23,15 +23,8 @@
         };
     }
 
-    $.fn.scrollPos = function (parameter, callback) {
-        if (typeof parameter == 'function') {
-            callback = parameter;
-            parameter = {};
-        } else {
-            parameter = parameter || {};
-            callback = callback || function () {
-            };
-        }
+    $.fn.scrollPos = function (parameter) {
+        parameter = typeof parameter == 'object' ? parameter : {};
         var defaults = {
             pos: 100,     // 滚动条在该位置时显示
             toPos: 0     // 点击之后滚动条到达的位置
