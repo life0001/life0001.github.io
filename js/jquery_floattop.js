@@ -33,14 +33,8 @@
 			});
 		};
 	 }
-	$.fn.floatTop = function (parameter, callback) {
-		 if (typeof parameter == 'function') {
-            callback = parameter;
-            parameter = {};
-        }else{
-            parameter = parameter || {};
-            callback = callback || function () {};
-        }
+	$.fn.floatTop = function (parameter) {
+        	parameter = typeof parameter == 'object' ? parameter : {};
 		 var defaults = {
 			 pos: 0,                       // 滚动条在该位置时停止浮动
 			 top: 0,                       // 导航的纵向定位
