@@ -1,0 +1,27 @@
+*{padding:0;margin:0; font-size:12px;}
+#fan{position:relative;}
+#fan input, #fan span{position:absolute; top:220px; }
+#fan input{width:20px; height:20px; opacity:0; cursor:pointer;}
+#fan span{width:18px; height:18px; color:#fff; background-color:deepskyblue; text-align:center; line-height:18px; border:1px solid #000; border-radius: 10px; }
+#fan .switch_0, #fan .switch_btn_0{left:40px;}
+#fan .switch_0{z-index:1;}
+#fan .switch_1, #fan .switch_btn_1{left:70px;}
+#fan .switch_1{z-index:1;}
+#fan .switch_2, #fan .switch_btn_2{left:100px;}
+#fan .switch_2{z-index:1;}
+#fan .switch_3, #fan .switch_btn_3{left:130px;}
+#fan .switch_3{z-index:1;}
+
+#fan .fan{animation: rotate 0s infinite linear;}
+@keyframes rotate{
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#fan .switch_0:checked + span, #fan .switch_1:checked + span, #fan .switch_2:checked + span, #fan .switch_3:checked + span{ background-color:#fff; color:#000; border-color:deepskyblue;}
+#fan .switch_1:checked + span + input + span + input + span + .fan{animation-duration:5s;}
+#fan .switch_2:checked + span + input + span + .fan{animation-duration:3s;}
+#fan .switch_3:checked + span + .fan{animation-duration:2s;}
