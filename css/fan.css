@@ -12,16 +12,30 @@
 #fan .switch_3, #fan .switch_btn_3{left:130px;}
 #fan .switch_3{z-index:1;}
 
-#fan .fan{animation: rotate 0s infinite linear;}
-@keyframes rotate{
-    0% {
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+#fan .fan{
+    animation: rotate 0s infinite linear;
+    -webkit-animation: rotate 0s infinite linear;
+    -moz-animation: rotate 0s infinite linear;
+    -o-animation: rotate 0s infinite linear;
 }
+@keyframes rotate{0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+@-webkit-keyframes rotate{0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+@-moz-keyframes rotate{0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+@-o-keyframes rotate{0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+@-ms-keyframes rotate{0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+
 #fan .switch_0:checked + span, #fan .switch_1:checked + span, #fan .switch_2:checked + span, #fan .switch_3:checked + span{ background-color:#fff; color:#000; border-color:deepskyblue;}
 #fan .switch_1:checked + span + input + span + input + span + .fan{animation-duration:5s;}
+#fan .switch_1:checked + span + input + span + input + span + .fan{-webkit-animation-duration:5s;}
+#fan .switch_1:checked + span + input + span + input + span + .fan{-moz-animation-duration:5s;}
+#fan .switch_1:checked + span + input + span + input + span + .fan{-o-animation-duration:5s;}
+
 #fan .switch_2:checked + span + input + span + .fan{animation-duration:3s;}
+#fan .switch_2:checked + span + input + span + .fan{-webkit-animation-duration:3s;}
+#fan .switch_2:checked + span + input + span + .fan{-moz-animation-duration:3s;}
+#fan .switch_2:checked + span + input + span + .fan{-o-animation-duration:3s;}
+
 #fan .switch_3:checked + span + .fan{animation-duration:2s;}
+#fan .switch_3:checked + span + .fan{-webkit-animation-duration:2s;}
+#fan .switch_3:checked + span + .fan{-moz-animation-duration:2s;}
+#fan .switch_3:checked + span + .fan{-o-animation-duration:2s;}
