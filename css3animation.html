@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="height100">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3动画</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <style>
+        .height100{height:100%;}
+        #css3animation{position:relative; animation:bodyBgMove 30s linear infinite;}
+        @keyframes bodyBgMove {
+            0%{background-color:#007fd5;}
+            50%{background-color:#000;}
+            100%{ background-color:#007fd5;}
+        }
+
+        #css3animation .cloud img{position:absolute; top:0; width:300%; height:100%;}
+        #css3animation .cloud img:first-child{ animation:cloud_1 6s linear infinite;}
+        #css3animation .cloud img:nth-child(2){ animation:cloud_2 7s linear infinite;}
+        #css3animation .cloud img:nth-child(3){animation:cloud_3 10s linear infinite;}
+        @keyframes cloud_1 {
+            0%{
+                left:-160%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @keyframes cloud_2 {
+            0%{
+                left:-260%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @keyframes cloud_3 {
+            0%{
+                left:-300%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+
+        #css3animation .plane img{position:absolute; animation:plane 5s linear infinite;}
+        #css3animation .plane img:first-child{left:0; top:5%; animation-timing-function:cubic-bezier(0.5,1,1,0.1)}
+        #css3animation .plane img:nth-child(2){left:0;top:30%; animation:plane_2 7s linear infinite;}
+        #css3animation .plane img:nth-child(3){left:0;top:60%; animation-timing-function:cubic-bezier(0.4,0.1,0.3,1)}
+        @keyframes plane {
+            0%{
+                left:100%;
+                transform: scale(4);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1);
+            }
+        }
+        @keyframes plane_2 {
+            0%{
+                left:100%;
+                transform: scale(4) rotateX(140deg);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1) rotateX(0deg);
+            }
+        }
+    </style>
+</head>
+<body class="height100">
+    <div id="css3animation" class="height100">
+        <div class="cloud">
+            <img src="img/cloud_two.png" />
+            <img src="img/cloud_one.png" />
+            <img src="img/cloud_three.png" />
+        </div>
+        <div class="plane">
+            <img src="img/plane.png" />
+            <img src="img/plane.png" />
+            <img src="img/plane.png" />
+        </div>
+    </div>
+</body>
+</html>
