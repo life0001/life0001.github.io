@@ -182,6 +182,7 @@ define(function () {
                             this.html += '<span date=' + iyear + iMonth + days + ' class="optional ' + this.getHolidayInfo(im, i) + '</span>';
                         }
                     } else if (data.month < month) {                                           // 当年 月份小于当月
+
                         this.html += '<span class="fc_gray">' + i + '</span>';
                     } else {                                                                   // 当年 月份大于当月
                         this.html += '<span date=' + iyear + iMonth + days + ' class="optional ' + this.getHolidayInfo(im, i) + '</span>';
