@@ -112,7 +112,6 @@ define(function () {
                 for (i = 0; i < len; i++) {
                     if (all[i].className.indexOf(clas) != -1) {
                         array.push(all[i]);
-                        break;
                     }
                 }
                 return array;
