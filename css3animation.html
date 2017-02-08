@@ -6,17 +6,61 @@
     <link rel="stylesheet" href="css/base.css" />
     <style>
         .height100{height:100%;}
-        #css3animation{position:relative; overflow:hidden; animation:bodyBgMove 30s linear infinite;}
+        #css3animation{position:relative; overflow:hidden; 
+            animation:bodyBgMove 30s linear infinite;
+            -webkit-animation:bodyBgMove 30s linear infinite;
+            -moz-animation:bodyBgMove 30s linear infinite;
+            -o-animation:bodyBgMove 30s linear infinite;
+            -ms-animation:bodyBgMove 30s linear infinite;        
+        }
         @keyframes bodyBgMove {
+            0%{background-color:#007fd5;}
+            50%{background-color:#000;}
+            100%{ background-color:#007fd5;}
+        }
+        @-webkit-keyframes bodyBgMove {
+            0%{background-color:#007fd5;}
+            50%{background-color:#000;}
+            100%{ background-color:#007fd5;}
+        }
+        @-moz-keyframes bodyBgMove {
+            0%{background-color:#007fd5;}
+            50%{background-color:#000;}
+            100%{ background-color:#007fd5;}
+        }
+        @-o-keyframes bodyBgMove {
+            0%{background-color:#007fd5;}
+            50%{background-color:#000;}
+            100%{ background-color:#007fd5;}
+        }
+        @-ms-keyframes bodyBgMove {
             0%{background-color:#007fd5;}
             50%{background-color:#000;}
             100%{ background-color:#007fd5;}
         }
 
         #css3animation .cloud img{position:absolute; top:0; width:300%; height:100%;}
-        #css3animation .cloud img:first-child{ animation:cloud_1 60s linear infinite;}
-        #css3animation .cloud img:nth-child(2){ animation:cloud_2 70s linear infinite;}
-        #css3animation .cloud img:nth-child(3){animation:cloud_3 100s linear infinite;}
+        #css3animation .cloud img:first-child{ 
+            animation:cloud_1 60s linear infinite;
+            -webkit-animation:cloud_1 60s linear infinite;
+            -moz-animation:cloud_1 60s linear infinite;
+            -o-animation:cloud_1 60s linear infinite;
+            -ms-animation:cloud_1 60s linear infinite;
+        }
+        #css3animation .cloud img:nth-child(2){ 
+            animation:cloud_2 70s linear infinite;
+            -webkit-animation:cloud_2 70s linear infinite;
+            -moz-animation:cloud_2 70s linear infinite;
+            -o-animation:cloud_2 70s linear infinite;
+            -ms-animation:cloud_2 70s linear infinite;
+        }
+        #css3animation .cloud img:nth-child(3){
+            animation:cloud_3 100s linear infinite;
+            -webkit-animation:cloud_3 100s linear infinite;
+            -moz-animation:cloud_3 100s linear infinite;
+            -o-animation:cloud_3 100s linear infinite;
+            -ms-animation:cloud_3 100s linear infinite;
+        }
         @keyframes cloud_1 {
             0%{
                 left:-160%;
@@ -25,6 +69,39 @@
                 left:200%;
             }
         }
+        @-webkit-keyframes cloud_1 {
+            0%{
+                left:-160%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-moz-keyframes cloud_1 {
+            0%{
+                left:-160%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-o-keyframes cloud_1 {
+            0%{
+                left:-160%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-ms-keyframes cloud_1 {
+            0%{
+                left:-160%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        
         @keyframes cloud_2 {
             0%{
                 left:-260%;
@@ -33,6 +110,39 @@
                 left:200%;
             }
         }
+        @-webkit-keyframes cloud_2 {
+            0%{
+                left:-260%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-moz-keyframes cloud_2 {
+            0%{
+                left:-260%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-o-keyframes cloud_2 {
+            0%{
+                left:-260%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-ms-keyframes cloud_2 {
+            0%{
+                left:-260%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        
         @keyframes cloud_3 {
             0%{
                 left:-300%;
@@ -41,11 +151,69 @@
                 left:200%;
             }
         }
+        @-webkit-keyframes cloud_3 {
+            0%{
+                left:-300%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-moz-keyframes cloud_3 {
+            0%{
+                left:-300%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-o-keyframes cloud_3 {
+            0%{
+                left:-300%;
+            }
+            100%{
+                left:200%;
+            }
+        }
+        @-ms-keyframes cloud_3 {
+            0%{
+                left:-300%;
+            }
+            100%{
+                left:200%;
+            }
+        }
 
-        #css3animation .plane img{position:absolute; animation:plane 5s linear infinite;}
-        #css3animation .plane img:first-child{left:0; top:5%; animation-timing-function:cubic-bezier(0.5,1,1,0.1)}
-        #css3animation .plane img:nth-child(2){left:0;top:30%; animation:plane_2 7s linear infinite;}
-        #css3animation .plane img:nth-child(3){left:0;top:60%; animation-timing-function:cubic-bezier(0.4,0.1,0.3,1)}
+
+
+        #css3animation .plane img{position:absolute; 
+            animation:plane 5s linear infinite;
+            -webkit-animation:plane 5s linear infinite;
+            -moz-animation:plane 5s linear infinite;
+            -o-animation:plane 5s linear infinite;
+            -ms-animation:plane 5s linear infinite;
+        }
+        #css3animation .plane img:first-child{left:0; top:5%; 
+            animation-timing-function:cubic-bezier(0.5,1,1,0.1);
+            -webkit-animation-timing-function:cubic-bezier(0.5,1,1,0.1);
+            -moz-animation-timing-function:cubic-bezier(0.5,1,1,0.1);
+            -o-animation-timing-function:cubic-bezier(0.5,1,1,0.1);
+            -ms-animation-timing-function:cubic-bezier(0.5,1,1,0.1);
+        }
+        #css3animation .plane img:nth-child(2){left:0;top:30%; 
+            animation:plane_2 7s linear infinite;
+            -webkit-animation:plane_2 7s linear infinite;
+            -moz-animation:plane_2 7s linear infinite;
+            -o-animation:plane_2 7s linear infinite;
+            -ms-animation:plane_2 7s linear infinite;
+        }
+        #css3animation .plane img:nth-child(3){left:0;top:60%; 
+            animation-timing-function:cubic-bezier(0.4,0.1,0.3,1);
+            -webkit-animation-timing-function:cubic-bezier(0.4,0.1,0.3,1);
+            -moz-animation-timing-function:cubic-bezier(0.4,0.1,0.3,1);
+            -o-animation-timing-function:cubic-bezier(0.4,0.1,0.3,1);
+            -ms-animation-timing-function:cubic-bezier(0.4,0.1,0.3,1);
+        }
         @keyframes plane {
             0%{
                 left:100%;
@@ -56,7 +224,88 @@
                 transform: scale(0.1);
             }
         }
+        @-webkit-keyframes plane {
+            0%{
+                left:100%;
+                transform: scale(4);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1);
+            }
+        }
+        @-moz-keyframes plane {
+            0%{
+                left:100%;
+                transform: scale(4);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1);
+            }
+        }
+        @-o-keyframes plane {
+            0%{
+                left:100%;
+                transform: scale(4);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1);
+            }
+        }
+        @-ms-keyframes plane {
+            0%{
+                left:100%;
+                transform: scale(4);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1);
+            }
+        }
+        
         @keyframes plane_2 {
+            0%{
+                left:100%;
+                transform: scale(4) rotateX(140deg);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1) rotateX(0deg);
+            }
+        }
+        @-webkit-keyframes plane_2 {
+            0%{
+                left:100%;
+                transform: scale(4) rotateX(140deg);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1) rotateX(0deg);
+            }
+        }
+        @-moz-keyframes plane_2 {
+            0%{
+                left:100%;
+                transform: scale(4) rotateX(140deg);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1) rotateX(0deg);
+            }
+        }
+        @-o-keyframes plane_2 {
+            0%{
+                left:100%;
+                transform: scale(4) rotateX(140deg);
+            }
+            100%{
+                left:-70%;
+                transform: scale(0.1) rotateX(0deg);
+            }
+        }
+        @-ms-keyframes plane_2 {
             0%{
                 left:100%;
                 transform: scale(4) rotateX(140deg);
