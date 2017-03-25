@@ -1,0 +1,10 @@
+#counter{position:fixed; top:50%; left:50%; width:400px; margin-left:-200px; margin-top:-172px; border:1px solid #ccc; font-size:18px;}
+.header .header_tit{text-indent:10px; line-height: 40px;}
+.header .display{text-align:right; border:dashed #ccc; border-width:1px 0; padding:0 10px;}
+.header .display .procedure{border-bottom:1px solid #ccc;}
+.header .display p{height:40px; line-height: 40px;}
+.counterContent .counterLeft{width:210px;}
+.counterContent .counterRight{width:140px;}
+.counterContent a{cursor:pointer; background-color: #ddd; width:60px;  line-height:30px; text-align: center; float:left; margin-right:10px; margin-bottom:20px;}
+.counterContent{margin-top:20px; padding-left:10px;}
+.counterContent .bigNum{width:130px;}
