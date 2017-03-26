@@ -16,7 +16,8 @@
 
     // 鼠标点击事件
     $('.counterContent').on('click', 'a', function () {
-        switch ($(this).text()) {
+        var txt = $(this).text();
+        switch (txt) {
             case 'C':
                 $procedure.text(0);
                 break;
@@ -42,7 +43,6 @@
                 isRepeat = true;
                 break;
             default :
-                var txt = $(this).text();
                 if (txt == '+' || txt == '-' || txt == '*' || txt == '/') {
                     if (!isRepeat) break;
                     $procedure.text() == 0 && $procedure.text('');
