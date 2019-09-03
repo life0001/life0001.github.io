@@ -227,7 +227,7 @@ _Game.a.push(function (Game) {
                         }else{   // 未开始掉或未触碰
                             arr[i].y += arr[i].vy;
                             arr[i].vy += this.speed;
-                            c.clearRect(arr[i].x, arr[i].y - this.speed, this.width, this.height); //在画布上清楚上一帧的图片
+                            c.clearRect(arr[i].x, arr[i].y - arr[i].vy, this.width, this.height); //在画布上清楚上一帧的图片
                             draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
                         }
                     }else{       // 触底
