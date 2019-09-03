@@ -75,18 +75,17 @@ _Game.a.push(function (Game) {
  * 画
  */
 _Game.a.push(function (Game) {
-    var stage = Game.Stage, hero = Game.Hero, vyv = Game.FallObjects.vy;
+    var stage = Game.Stage, hero = Game.Hero;
     Game.Draw = {
         img: function (src, x, y, width, height, mark) {
             var ctx = Game.ctx;
             var img = new Image();
             img.src = src;
             img.onload = function () {
+                ctx.drawImage(img, x, y, width, height);
                 if (mark) {
                     ctx.drawImage(mark, width-mark.width, height-mark.height);
                 }else{
-                    ctx.clearRect(x, y - vyv, width, height); //在画布上清楚上一帧的图片
-                    ctx.drawImage(img, x, y, width, height);
                     Game.Stage.aImgs.push({x:x, y:y, width:width, height:height});
                 }
             };
@@ -197,14 +196,14 @@ _Game.a.push(function (Game) {
             this.render = function () {
                 var _this = this, ctx = Game.ctx;
                 Game.Hero.move();
-                // draw.render();
+                draw.render();
                 this.checkTouchs(_this, ctx);
                 requestAnimationFrame(function () {
                     if (_this.count != _this.num) {
                         _this.render();
                     }else{
                         if (_this.all-- <= 1 ) {
-                            // draw.bg(ctx, 'rgba(0, 0, 0, .5)');
+                            draw.bg(ctx, 'rgba(0, 0, 0, .5)');
                             draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
                             draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
                             Game.Event.isTrue = true;
@@ -227,7 +226,7 @@ _Game.a.push(function (Game) {
                             arr.splice(i, 1);
                         }else{   // 未开始掉或未触碰
                             arr[i].y += arr[i].vy;
-                            Game.FallObjects.vy = arr[i].vy += this.speed;
+                            arr[i].vy += this.speed;
                             draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
                         }
                     }else{       // 触底
@@ -241,8 +240,7 @@ _Game.a.push(function (Game) {
         down: function () {
             var aO = new this.Objects();
             aO.init(aO.num);
-        },
-        vy: 0
+        }
     }
 });
 _Game.init('game', 'btn', 'mobile');
