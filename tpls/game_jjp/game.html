@@ -3,261 +3,247 @@
 <canvas id="game">您的浏览器太旧了，无法正常访问</canvas>
 <script src="../../js/oyh/game.js"></script>
 <script>
-	/**
-	 * 舞台
-	 */
 	_Game.a.push(function (Game) {
-		var wWidth = Game.width, wHeight = Game.height;
-		Game.Stage = {
-			arrowLeftX: wWidth * 0.05,             // 左箭头x坐标
-			arrowRightX: wWidth * 0.775,           // 右箭头x坐标
-			arrowY: wHeight * 0.8,                 // 左右箭头y坐标
-			arrowWidth: wWidth * 0.16875,          // 左右箭头宽
-			arrowHeight: wHeight * 0.111554,       // 左右箭头高
-			ljtX: wWidth * 0.246875,               // 领奖台x坐标
-			ljtY: wHeight * 0.695,                 // 领奖台y坐标
-			ljtWidth: wWidth * 0.5015625,          // 领奖台宽度
-			ljtHeight: wHeight * 0.21414,          // 领奖台高度
-			aImgs: [],
-            		win: window
-		}
-	});
-
-
-    /**
-     * 英雄
-     */
-    _Game.a.push(function (Game) {
-        var wWidth = Game.width, wHeight = Game.height;
-        Game.Hero = {
-            HeroX: wWidth * 0.309,                 // 英雄x坐标
-            HeroY: wHeight * 0.3100,               // 英雄y坐标
-            HeroWidth: wWidth * 0.3828125,        // 英雄宽度
-            HeroHeight: wHeight * 0.4,            // 英雄高度
-            maxX: wWidth * 0.309 + (Game.Stage.ljtWidth / 3),
-            minX: Game.Stage.ljtX - wWidth * 0.09,
-            maxY: wHeight * 0.3100,
-            minY: wHeight * 0.385,
-            speed: 1000/60,
-            num : 1,
-            role: location.href.substr(-1),      // 角色
-            itop: function () {
-                return this.num === 1 ? this.maxY : this.minY;
-            },
-
-            // 移动英雄
-            move: function (direction) {
-                switch (this.num) {
-                    case 0:
-                        if ( (this.HeroX -= this.speed) <= this.minX ) {
-                            this.HeroX = this.minX;
-                            if ( (this.HeroY += this.speed) >= this.itop()) this.HeroY = this.itop()
+    var wWidth = Game.width, wHeight = Game.height;
+    Game.Stage = {
+        arrowLeftX: wWidth * 0.05,             // 左箭头x坐标
+        arrowRightX: wWidth * 0.775,           // 右箭头x坐标
+        arrowY: wHeight * 0.8,                 // 左右箭头y坐标
+        arrowWidth: wWidth * 0.16875,          // 左右箭头宽
+        arrowHeight: wHeight * 0.111554,       // 左右箭头高
+        ljtX: wWidth * 0.246875,               // 领奖台x坐标
+        ljtY: wHeight * 0.695,                 // 领奖台y坐标
+        ljtWidth: wWidth * 0.5015625,          // 领奖台宽度
+        ljtHeight: wHeight * 0.21414,          // 领奖台高度
+        aImgs: [],
+        win: window
+    }
+});
+/**
+ * 英雄
+ */
+_Game.a.push(function (Game) {
+    var wWidth = Game.width, wHeight = Game.height;
+    Game.Hero = {
+        HeroX: wWidth * 0.309,                 // 英雄x坐标
+        HeroY: wHeight * 0.3100,               // 英雄y坐标
+        HeroWidth: wWidth * 0.3828125,        // 英雄宽度
+        HeroHeight: wHeight * 0.4,            // 英雄高度
+        maxX: wWidth * 0.309 + (Game.Stage.ljtWidth / 3),
+        minX: Game.Stage.ljtX - wWidth * 0.09,
+        maxY: wHeight * 0.3100,
+        minY: wHeight * 0.385,
+        speed: 1000/60,
+        num : 1,
+        role: location.href.substr(-1),      // 角色
+        itop: function () {
+            return this.num === 1 ? this.maxY : this.minY;
+        },
+        // 移动英雄
+        move: function (direction) {
+            switch (this.num) {
+                case 0:
+                    if ( (this.HeroX -= this.speed) <= this.minX ) {
+                        this.HeroX = this.minX;
+                        if ( (this.HeroY += this.speed) >= this.itop()) this.HeroY = this.itop()
+                    }
+                    break;
+                case 1:
+                    if (direction == 'left') {
+                        if ((this.HeroY -= this.speed) <= this.itop()) {
+                            this.HeroY = this.itop();
+                            if ((this.HeroX -= this.speed) <= this.HeroX) return;
                         }
-                        break;
-                    case 1:
-                        if (direction == 'left') {
-                            if ((this.HeroY -= this.speed) <= this.itop()) {
-
-                                this.HeroY = this.itop();
-                                if ((this.HeroX -= this.speed) <= this.HeroX) return;
-                            }
-                        }else{
-                            if ( (this.HeroY -= this.speed) <= this.itop()) {
-                                this.HeroY = this.itop();
-                                if ( (this.HeroX += this.speed) >= this.HeroX ) this.HeroX = wWidth * 0.309;
-                            }
+                    }else{
+                        if ( (this.HeroY -= this.speed) <= this.itop()) {
+                            this.HeroY = this.itop();
+                            if ( (this.HeroX += this.speed) >= this.HeroX ) this.HeroX = wWidth * 0.309;
                         }
-                        break;
-                    case 2:
-                        if ( (this.HeroX += this.speed) >= this.maxX ) {
-                            this.HeroX = this.maxX;
-                            if ( (this.HeroY += this.speed) >= this.itop()) this.HeroY = this.itop();
-                        }
-                        break;
-                }
+                    }
+                    break;
+                case 2:
+                    if ( (this.HeroX += this.speed) >= this.maxX ) {
+                        this.HeroX = this.maxX;
+                        if ( (this.HeroY += this.speed) >= this.itop()) this.HeroY = this.itop();
+                    }
+                    break;
             }
         }
-    });
-
-	/**
-	 * 画
-	 */
-	_Game.a.push(function (Game) {
-        	var stage = Game.Stage, hero = Game.Hero;
-		Game.Draw = {
-			img: function (src, x, y, width, height, mark) {
-				var ctx = Game.ctx;
-				var img = new Image();
-				img.src = src;
-				img.onload = function () {
-					ctx.drawImage(img, x, y, width, height);
-					if (mark) {
-						ctx.drawImage(mark, width-mark.width, height-mark.height);
-					}else{
-						Game.Stage.aImgs.push({x:x, y:y, width:width, height:height});
-					}
-				};
-			},
-			text: function (ctx, font, color, txt, x, y) {
-                		ctx.fillStyle = color;
-				ctx.font = font;
-				ctx.textAlign = 'center';
-				ctx.fillText(txt, x, y);
-			},
-			bg: function (ctx, bg) {
-				ctx.save();
-				ctx.fillStyle = bg;
-				ctx.fillRect(0, 0, Game.width, Game.height);
-				ctx.restore();
-			},
-			render: function () {
-				this.img('../img/oyh/g1.png', 0, 0, Game.width, Game.height);  // 背景
-				this.img('../img/oyh/arrowLeft.png',  stage.arrowLeftX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 左箭头
-				this.img('../img/oyh/arrowRight.png',  stage.arrowRightX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 右箭头
-				this.img('../img/oyh/g2.png',  stage.ljtX,  stage.ljtY,  stage.ljtWidth,  stage.ljtHeight); // 领奖台
-				this.img('../img/oyh/role/'+ hero.role +'.png',  hero.HeroX,  hero.HeroY,  hero.HeroWidth,  hero.HeroHeight); // 英雄
-			}
-		};
-	});
-
-	/**
-	 * 事件
-	 */
-	_Game.a.push(function (Game) {
-		Game.Event = {
-			isTrue: false,
-			init: function () {
-				Game.btn.addEventListener('click', function () {
-					$(this).parent().remove();
-                    			Game.start();
-				}, false);
-                		Game.canvas.addEventListener('touchstart', this.event, false);
-			},
-			event: function (e) {
-				var arrayImg = Game.Stage.aImgs;
-				var cx = e.changedTouches[0].clientX, cy = e.changedTouches[0].clientY;
-				(function arrow() {
-					if(
-						    cx >= arrayImg[1].x && cx <= arrayImg[1].x + arrayImg[1].width
-						&&  cy >= arrayImg[1].y && cy <= arrayImg[1].y + arrayImg[1].height
-					){
-						if (Game.Hero.num -- <= 0) {
-							Game.Hero.num = 0 ;
-							return;
-						}
-						Game.Hero.move('left');
-
-					}else if(
-						    cx >= arrayImg[2].x && cx <= arrayImg[2].x + arrayImg[2].width
-						&&  cy >= arrayImg[2].y && cy <= arrayImg[2].y + arrayImg[2].height
-					){
-						if (Game.Hero.num++ >= 2) {
-							Game.Hero.num = 2;
-							return;
-						}
-						Game.Hero.move();
-					}
-				})();
-
-				(function reStart () {
-					if (Game.Event.isTrue) location.reload();
-				})();
-			},
-            		getEle: function (ele) {
-				return document.getElementById(ele);
-			}
-		};
-	});
-
-	/**
-	 * 掉落物
-	 */
-	_Game.a.push(function (Game) {
-		var arr = [], win = Game.Stage.win, draw = Game.Draw, wWidth = Game.width, wHeight = Game.height, hero = Game.Hero,
-			// 兼容性处理
-			requestAnimationFrame = win.requestAnimationFrame || win.webkitRequestAnimationFrame || win.msRequestAnimationFrame || win.mozRequestAnimationFrame;
-		Game.FallObjects = {
-			Objects: function () {
-				this.width = wWidth * 0.114;       // 宽度
-				this.height = wHeight * 0.091;     // 高度
-				this.maxX = wWidth * 0.65;         // x最大坐标
-				this.minX = wWidth * 0.22;         // x最小位置
-				this.y = -wHeight * 0.091;         // y坐标
-				this.vy = 0;                       // y坐标方向
-				this.num = 10;                     // 掉落物数量
-				this.speed = 0.002;                // 速度
-				this.golds = 0;                    // 接到掉落物初始值
-                		this.count = 0;
-
-				this.init = function (n) {
-					var i = n, _this = this, ctx = Game.ctx;
-					this.all = this.num;
-					while (i--) {
-						(function (j) {
-							setTimeout(function () {
-								var randomX = Math.random() * (_this.maxX - _this.minX) + 1 + _this.minX;
-								arr.push({
-									x: randomX,
-									y: _this.y,
-									vy: 0
-								});
-								_this.render();
-							},j*500);
-						})(i);
-					}
-				};
-
-				this.render = function () {
-					var _this = this, ctx = Game.ctx;
-					Game.Hero.move();
-					draw.render();
-					this.checkTouchs(_this, ctx);
-					requestAnimationFrame(function () {
-						if (_this.count != _this.num) {
-							_this.render();
-						}else{
-			                            if (_this.all-- <= 1 ) {
-			                                draw.bg(ctx, 'rgba(0, 0, 0, .5)');
-			                                draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
-			                                draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
-			                                Game.Event.isTrue = true;
-			                            }
-						}
-					});
-				};
-
-				// 碰撞检测
-				this.checkTouchs = function (t, c) {
-					for (var i = 0; i<arr.length; i++) {
-						if (arr[i].y <= wHeight) {
-							if (
-                            					    (hero.HeroX + hero.HeroWidth*0.324) < (arr[i].x + this.width)
-								&&  (hero.HeroX + hero.HeroWidth*0.670) > arr[i].x
-								&&  (hero.HeroY + hero.HeroHeight*0.34) < arr[i].y
-								&&  (hero.HeroY + hero.HeroHeight*0.45) > arr[i].y
-							){       // 触碰
-								this.golds++;
-                                				this.count++;
-								arr.splice(i, 1);
-							}else{   // 未开始掉或未触碰
-				                                arr[i].y += arr[i].vy;
-				                                arr[i].vy += this.speed;
-								draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
-							}
-						}else{       // 触底
-							arr.splice(i, 1);
-                            				this.count++;
-						}
-					}
-					draw.text(c, '1rem 黑体', '#000', '金牌：'+t.golds+'/'+this.num, wWidth*0.44, 30);
-				};
-		},
-		down: function () {
-			var aO = new this.Objects();
-			aO.init(aO.num);
-		}
-	}
-	});
+    }
+});
+/**
+ * 画
+ */
+_Game.a.push(function (Game) {
+    var stage = Game.Stage, hero = Game.Hero;
+    Game.Draw = {
+        img: function (src, x, y, width, height, mark) {
+            var ctx = Game.ctx;
+            var img = new Image();
+            img.src = src;
+            img.onload = function () {
+                ctx.drawImage(img, x, y, width, height);
+                if (mark) {
+                    ctx.drawImage(mark, width-mark.width, height-mark.height);
+                }else{
+                    Game.Stage.aImgs.push({x:x, y:y, width:width, height:height});
+                }
+            };
+        },
+        text: function (ctx, font, color, txt, x, y) {
+            ctx.fillStyle = color;
+            ctx.font = font;
+            ctx.textAlign = 'center';
+            ctx.fillText(txt, x, y);
+        },
+        bg: function (ctx, bg) {
+            ctx.save();
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, Game.width, Game.height);
+            ctx.restore();
+        },
+        render: function () {
+            this.img('../img/oyh/g1.png', 0, 0, Game.width, Game.height);  // 背景
+            this.img('../img/oyh/arrowLeft.png',  stage.arrowLeftX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 左箭头
+            this.img('../img/oyh/arrowRight.png',  stage.arrowRightX,  stage.arrowY,  stage.arrowWidth,  stage.arrowHeight); // 右箭头
+            this.img('../img/oyh/g2.png',  stage.ljtX,  stage.ljtY,  stage.ljtWidth,  stage.ljtHeight); // 领奖台
+            this.img('../img/oyh/role/'+ hero.role +'.png',  hero.HeroX,  hero.HeroY,  hero.HeroWidth,  hero.HeroHeight); // 英雄
+        }
+    };
+});
+/**
+ * 事件
+ */
+_Game.a.push(function (Game) {
+    Game.Event = {
+        isTrue: false,
+        init: function () {
+            Game.btn.addEventListener('click', function () {
+                $(this).parent().remove();
+                Game.start();
+            }, false);
+            Game.canvas.addEventListener('touchstart', this.event, false);
+        },
+        event: function (e) {
+            var arrayImg = Game.Stage.aImgs;
+            var cx = e.changedTouches[0].clientX, cy = e.changedTouches[0].clientY;
+            (function arrow() {
+                if(
+                    cx >= arrayImg[1].x && cx <= arrayImg[1].x + arrayImg[1].width
+                    &&  cy >= arrayImg[1].y && cy <= arrayImg[1].y + arrayImg[1].height
+                ){
+                    if (Game.Hero.num -- <= 0) {
+                        Game.Hero.num = 0 ;
+                        return;
+                    }
+                    Game.Hero.move('left');
+                }else if(
+                    cx >= arrayImg[2].x && cx <= arrayImg[2].x + arrayImg[2].width
+                    &&  cy >= arrayImg[2].y && cy <= arrayImg[2].y + arrayImg[2].height
+                ){
+                    if (Game.Hero.num++ >= 2) {
+                        Game.Hero.num = 2;
+                        return;
+                    }
+                    Game.Hero.move();
+                }
+            })();
+            (function reStart () {
+                if (Game.Event.isTrue) location.reload();
+            })();
+        },
+        getEle: function (ele) {
+            return document.getElementById(ele);
+        }
+    };
+});
+/**
+ * 掉落物
+ */
+_Game.a.push(function (Game) {
+    var arr = [], win = Game.Stage.win, draw = Game.Draw, wWidth = Game.width, wHeight = Game.height, hero = Game.Hero,
+        // 兼容性处理
+        requestAnimationFrame = win.requestAnimationFrame || win.webkitRequestAnimationFrame || win.msRequestAnimationFrame || win.mozRequestAnimationFrame;
+    Game.FallObjects = {
+        Objects: function () {
+            this.width = wWidth * 0.114;       // 宽度
+            this.height = wHeight * 0.091;     // 高度
+            this.maxX = wWidth * 0.65;         // x最大坐标
+            this.minX = wWidth * 0.22;         // x最小位置
+            this.y = -wHeight * 0.091;         // y坐标
+            this.vy = 0;                       // y坐标方向
+            this.num = 10;                     // 掉落物数量
+            this.speed = 0.002;                // 速度
+            this.golds = 0;                    // 接到掉落物初始值
+            this.count = 0;
+            this.init = function (n) {
+                var i = n, _this = this, ctx = Game.ctx;
+                this.all = this.num;
+                while (i--) {
+                    (function (j) {
+                        setTimeout(function () {
+                            var randomX = Math.random() * (_this.maxX - _this.minX) + 1 + _this.minX;
+                            arr.push({
+                                x: randomX,
+                                y: _this.y,
+                                vy: 0
+                            });
+                            _this.render();
+                        },j*500);
+                    })(i);
+                }
+            };
+            this.render = function () {
+                var _this = this, ctx = Game.ctx;
+                Game.Hero.move();
+                // draw.render();
+                this.checkTouchs(_this, ctx);
+                requestAnimationFrame(function () {
+                    if (_this.count != _this.num) {
+                        _this.render();
+                    }else{
+                        if (_this.all-- <= 1 ) {
+                            draw.bg(ctx, 'rgba(0, 0, 0, .5)');
+                            draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
+                            draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
+                            Game.Event.isTrue = true;
+                        }
+                    }
+                });
+            };
+            // 碰撞检测
+            this.checkTouchs = function (t, c) {
+                for (var i = 0; i<arr.length; i++) {
+                    if (arr[i].y <= wHeight) {
+                        if (
+                            (hero.HeroX + hero.HeroWidth*0.324) < (arr[i].x + this.width)
+                            &&  (hero.HeroX + hero.HeroWidth*0.670) > arr[i].x
+                            &&  (hero.HeroY + hero.HeroHeight*0.34) < arr[i].y
+                            &&  (hero.HeroY + hero.HeroHeight*0.45) > arr[i].y
+                        ){       // 触碰
+                            this.golds++;
+                            this.count++;
+                            arr.splice(i, 1);
+                        }else{   // 未开始掉或未触碰
+                            arr[i].y += arr[i].vy;
+                            arr[i].vy += this.speed;
+                            Game.ctx.clearRect(arr[i].x, arr[i].y - this.speed, this.width, this.height); //在画布上清楚上一帧的图片
+                            draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
+                        }
+                    }else{       // 触底
+                        arr.splice(i, 1);
+                        this.count++;
+                    }
+                }
+                draw.text(c, '1rem 黑体', '#000', '金牌：'+t.golds+'/'+this.num, wWidth*0.44, 30);
+            };
+        },
+        down: function () {
+            var aO = new this.Objects();
+            aO.init(aO.num);
+        }
+    }
+});
 _Game.init('game', 'btn', 'mobile');
 document.getElementById('loading').style.display = 'none';
 document.getElementById('bg').style.display = 'block';
