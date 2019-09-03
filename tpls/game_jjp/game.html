@@ -75,7 +75,7 @@ _Game.a.push(function (Game) {
  * 画
  */
 _Game.a.push(function (Game) {
-    var stage = Game.Stage, hero = Game.Hero, vy = Game.FallObjects.vy;
+    var stage = Game.Stage, hero = Game.Hero, vyv = Game.FallObjects.vy;
     Game.Draw = {
         img: function (src, x, y, width, height, mark) {
             var ctx = Game.ctx;
@@ -85,7 +85,7 @@ _Game.a.push(function (Game) {
                 if (mark) {
                     ctx.drawImage(mark, width-mark.width, height-mark.height);
                 }else{
-                    ctx.clearRect(x, y - vy, width, height); //在画布上清楚上一帧的图片
+                    ctx.clearRect(x, y - vyv, width, height); //在画布上清楚上一帧的图片
                     ctx.drawImage(img, x, y, width, height);
                     Game.Stage.aImgs.push({x:x, y:y, width:width, height:height});
                 }
