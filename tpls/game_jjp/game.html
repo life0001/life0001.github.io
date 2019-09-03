@@ -228,7 +228,11 @@ _Game.a.push(function (Game) {
                             arr[i].y += arr[i].vy;
                             arr[i].vy += this.speed;
                             c.clearRect(arr[i].x, arr[i].y - arr[i].vy, this.width, this.height); //在画布上清楚上一帧的图片
-                            draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
+                            var oimg = new Image();
+                            oimg.src = '../img/oyh/g3.png';
+                            oimg.onload = function(){
+                                draw.img(oimg, arr[i].x, arr[i].y, this.width, this.height);
+                            }
                         }
                     }else{       // 触底
                         arr.splice(i, 1);
