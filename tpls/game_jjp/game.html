@@ -203,7 +203,7 @@ _Game.a.push(function (Game) {
                         _this.render();
                     }else{
                         if (_this.all-- <= 1 ) {
-                            draw.bg(ctx, 'rgba(0, 0, 0, .5)');
+                            // draw.bg(ctx, 'rgba(0, 0, 0, .5)');
                             draw.text(ctx, '1.4rem 黑体', '#fff', '你共接到'+_this.golds+'枚金牌，继续加油', wWidth*0.5, wHeight*0.4);
                             draw.text(ctx, '1.4rem 黑体', '#fff', '点击再玩一次', wWidth*0.5, wHeight*0.45);
                             Game.Event.isTrue = true;
@@ -227,7 +227,7 @@ _Game.a.push(function (Game) {
                         }else{   // 未开始掉或未触碰
                             arr[i].y += arr[i].vy;
                             arr[i].vy += this.speed;
-                            Game.ctx.clearRect(arr[i].x, arr[i].y - this.speed, this.width, this.height); //在画布上清楚上一帧的图片
+                            c.clearRect(arr[i].x, arr[i].y - this.speed, this.width, this.height); //在画布上清楚上一帧的图片
                             draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
                         }
                     }else{       // 触底
