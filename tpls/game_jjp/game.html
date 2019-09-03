@@ -75,17 +75,18 @@ _Game.a.push(function (Game) {
  * 画
  */
 _Game.a.push(function (Game) {
-    var stage = Game.Stage, hero = Game.Hero;
+    var stage = Game.Stage, hero = Game.Hero, vy = Game.FallObjects.vy;
     Game.Draw = {
         img: function (src, x, y, width, height, mark) {
             var ctx = Game.ctx;
             var img = new Image();
             img.src = src;
             img.onload = function () {
-                ctx.drawImage(img, x, y, width, height);
                 if (mark) {
                     ctx.drawImage(mark, width-mark.width, height-mark.height);
                 }else{
+                    ctx.clearRect(x, y - vy, width, height); //在画布上清楚上一帧的图片
+                    ctx.drawImage(img, x, y, width, height);
                     Game.Stage.aImgs.push({x:x, y:y, width:width, height:height});
                 }
             };
@@ -226,13 +227,8 @@ _Game.a.push(function (Game) {
                             arr.splice(i, 1);
                         }else{   // 未开始掉或未触碰
                             arr[i].y += arr[i].vy;
-                            arr[i].vy += this.speed;
-                            c.clearRect(arr[i].x, arr[i].y - arr[i].vy, this.width, this.height); //在画布上清楚上一帧的图片
-                            var oimg = new Image();
-                            oimg.src = '../img/oyh/g3.png';
-                            oimg.onload = function(){
-                                draw.img(oimg, arr[i].x, arr[i].y, this.width, this.height);
-                            }
+                            Game.FallObjects.vy = arr[i].vy += this.speed;
+                            draw.img('../img/oyh/g3.png', arr[i].x, arr[i].y, this.width, this.height);
                         }
                     }else{       // 触底
                         arr.splice(i, 1);
